@@ -12,7 +12,7 @@
     <artifactId>auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>auth</name>
-    <description>软件工程 权限管理系统</description>
+    <description>project</description>
 
     <properties>
         <java.version>11</java.version>

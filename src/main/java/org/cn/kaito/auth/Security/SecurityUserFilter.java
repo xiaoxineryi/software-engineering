@@ -56,6 +56,7 @@ public class SecurityUserFilter extends OncePerRequestFilter {
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(
                             request));
                     logger.info("authenticated user " + userID + ", setting security context");
+                    logger.info(userDetails.getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
