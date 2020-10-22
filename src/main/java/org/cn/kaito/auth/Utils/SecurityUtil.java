@@ -7,12 +7,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class SecurityUtil {
 
-    private static UserDetails getAuthUserDetail() {
+    private UserDetails getAuthUserDetail() {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication auth = context.getAuthentication();
         return (UserDetails) auth.getPrincipal();
     }
-    public static String getUserName(){
+    public String getUserName(){
         return getAuthUserDetail().getUsername();
     }
 }

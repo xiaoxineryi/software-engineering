@@ -1,6 +1,7 @@
 package org.cn.kaito.auth.Exception;
 
-import com.kaito.game.Utils.StatusEnum;
+
+import org.cn.kaito.auth.Utils.StatusEnum;
 
 public class CustomerException extends BaseException{
 

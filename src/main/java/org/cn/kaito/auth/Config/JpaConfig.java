@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@EntityScan(basePackages = "com.kaito.game.dao.entity")
-@EnableJpaRepositories(basePackages = "com.kaito.game.dao.repository")
+@EntityScan(basePackages = "org.cn.kaito.auth.Dao.Entity")
+@EnableJpaRepositories(basePackages = "org.cn.kaito.auth.Dao.Repository")
 public class JpaConfig {
 }

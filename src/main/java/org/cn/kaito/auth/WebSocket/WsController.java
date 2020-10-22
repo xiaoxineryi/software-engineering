@@ -1,12 +1,11 @@
 package org.cn.kaito.auth.WebSocket;
 
-import com.kaito.game.Config.MyEndpointConfig;
-import com.kaito.game.Security.SecurityTokenUtil;
-import com.kaito.game.Service.RoomService;
-import com.kaito.game.Utils.SecurityUtil;
-import com.kaito.game.Utils.WsDecoder;
-import com.kaito.game.Utils.WsEncoder;
+
 import lombok.extern.slf4j.Slf4j;
+import org.cn.kaito.auth.Config.MyEndpointConfig;
+import org.cn.kaito.auth.Security.SecurityTokenUtil;
+import org.cn.kaito.auth.Utils.WsDecoder;
+import org.cn.kaito.auth.Utils.WsEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -24,22 +23,12 @@ import java.io.IOException;
 @Slf4j
 @Component
 public class WsController {
-    @Qualifier(value = "roomServiceImpl")
-    @Autowired
-    RoomService roomService;
-    @Autowired
-    SecurityTokenUtil securityTokenUtil;
+
+
     @OnOpen
     public void OnOpen(Session session,
-                       @PathParam("roomID") int roomID,
                        @PathParam("token") String token) throws IOException {
-        if (securityTokenUtil.validateToken(SecurityUtil.getUserName(),token)){
-            System.out.println("成功");
-            roomService.enterRoom(roomID,SecurityUtil.getUserName(),session);
-        }else {
-            session.getAsyncRemote().sendObject("身份信息错误");
-            session.close();
-        }
+
     }
 
 
@@ -50,7 +39,7 @@ public class WsController {
     @OnClose
     public void OnClose(Session session, @PathParam("roomID") int roomID,
                         @PathParam("token") String token){
-        roomService.quitRoom(roomID, SecurityUtil.getUserName());
+
     }
 
 }

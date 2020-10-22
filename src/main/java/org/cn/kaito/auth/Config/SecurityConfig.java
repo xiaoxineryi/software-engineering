@@ -1,6 +1,6 @@
 package org.cn.kaito.auth.Config;
 
-import com.kaito.game.Security.SecurityUserFilter;
+import org.cn.kaito.auth.Security.SecurityUserFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

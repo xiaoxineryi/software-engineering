@@ -1,7 +1,8 @@
 package org.cn.kaito.auth.Security;
 
-import com.kaito.game.Utils.Constants;
+
 import lombok.extern.slf4j.Slf4j;
+import org.cn.kaito.auth.Utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,19 +43,19 @@ public class SecurityUserFilter extends OncePerRequestFilter {
         String token = request.getHeader(TOKENHEADER);
         logger.info("正在执行权限检查");
         if (token !=null){
-            Optional<String> userName = securityTokenUtil.getUserNameByToken(token);
-            logger.info("the userName is "+userName.get());
-            if (userName.isPresent() && SecurityContextHolder.getContext().getAuthentication() == null){
+            Optional<String> userID = securityTokenUtil.getUserIDByToken(token);
+            logger.info("the userName is "+userID.get());
+            if (userID.isPresent() && SecurityContextHolder.getContext().getAuthentication() == null){
                 // 如果有这个帐号的话，就赋予相应的权限
-                UserDetails userDetails = userDetailsService.loadUserByUsername(userName.get());
+                UserDetails userDetails = userDetailsService.loadUserByUsername(String.valueOf(userID.get()));
 
-                if (securityTokenUtil.validateToken(userName.get(),token)){
+                if (securityTokenUtil.validateToken(userID.get(),token)){
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                             userDetails,null,userDetails.getAuthorities()
                     );
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(
                             request));
-                    logger.info("authenticated user " + userName + ", setting security context");
+                    logger.info("authenticated user " + userID + ", setting security context");
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }

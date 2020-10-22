@@ -1,7 +1,8 @@
 package org.cn.kaito.auth.Exception;
 
-import com.kaito.game.Utils.StatusEnum;
+
 import lombok.Getter;
+import org.cn.kaito.auth.Utils.StatusEnum;
 
 @Getter
 public class BaseException extends Exception{
