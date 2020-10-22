@@ -16,12 +16,12 @@ public class SecurityTokenUtil {
 
 
     public Optional<String> getUserIDByToken(String token)  {
-        Optional<UserEntity> userEntity = userRepository.getUserEntityByToken(token);
+        Optional<UserEntity> userEntity = userRepository.findUserEntityByToken(token);
         return Optional.of(userEntity.get().getUserID());
     }
 
     public boolean validateToken(String userID, String token) {
-        Optional<UserEntity> userEntity = userRepository.getUserEntityByToken(token);
+        Optional<UserEntity> userEntity = userRepository.findUserEntityByToken(token);
         if (userEntity.isPresent()){
             return userID.equals(userEntity.get().getUserID());
         }else {

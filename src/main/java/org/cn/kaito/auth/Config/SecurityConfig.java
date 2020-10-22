@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
@@ -23,9 +24,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Bean
+    public DefaultWebSecurityExpressionHandler defaultWebSecurityExpressionHandler(){
+        DefaultWebSecurityExpressionHandler defaultWebSecurityExpressionHandler = new DefaultWebSecurityExpressionHandler();
+        defaultWebSecurityExpressionHandler.setPermissionEvaluator(mySecurityPermissionEvaluator());
+        return defaultWebSecurityExpressionHandler;
+    }
+
+    @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public MySecurityPermissionEvaluator mySecurityPermissionEvaluator(){
+        return new MySecurityPermissionEvaluator();
     }
 
     @Override
@@ -38,14 +51,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity            httpSecurity) throws Exception {
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
 //        httpSecurity.authorizeRequests().antMatchers(
 //                "/session/invalid"
 //        ).permitAll().anyRequest().authenticated();
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+
         httpSecurity.sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true);
         httpSecurity.csrf().disable();
     }
+
+
 
 
 }
