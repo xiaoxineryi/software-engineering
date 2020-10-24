@@ -4,6 +4,7 @@ package org.cn.kaito.auth.WebSocket;
 import lombok.extern.slf4j.Slf4j;
 import org.cn.kaito.auth.Config.MyEndpointConfig;
 import org.cn.kaito.auth.Security.SecurityTokenUtil;
+import org.cn.kaito.auth.Service.SessionService;
 import org.cn.kaito.auth.Utils.WsDecoder;
 import org.cn.kaito.auth.Utils.WsEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,19 @@ import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 
-@ServerEndpoint(value = "/room/{roomID}/{token}",configurator = MyEndpointConfig.class
+@ServerEndpoint(value = "/room/{token}",configurator = MyEndpointConfig.class
         ,encoders = {WsEncoder.class}, decoders = {WsDecoder.class})
 @Slf4j
 @Component
 public class WsController {
 
+    @Autowired
+    SessionService sessionService;
 
     @OnOpen
     public void OnOpen(Session session,
                        @PathParam("token") String token) throws IOException {
-
+        sessionService.addByToken(token,session);
     }
 
 

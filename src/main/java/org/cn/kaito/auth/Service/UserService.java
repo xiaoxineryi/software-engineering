@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface UserService {
     Optional<UserLoginResponse> login(UserLoginRequest userLoginRequest);
 
+    String getUserIDByToken(String token);
 }

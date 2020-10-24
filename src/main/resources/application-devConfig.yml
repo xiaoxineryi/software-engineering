@@ -1,0 +1,4 @@
+log-info:
+    basePath: ./src/main/resources/log/
+
+

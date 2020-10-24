@@ -13,4 +13,10 @@ public class UserServiceImpl implements UserService {
     public Optional<UserLoginResponse> login(UserLoginRequest userLoginRequest) {
         return Optional.empty();
     }
+
+    @Override
+    public String getUserIDByToken(String token) {
+        return "kaito";
+    }
+
 }
