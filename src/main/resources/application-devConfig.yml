@@ -1,4 +1,5 @@
 log-info:
-    basePath: ./src/main/resources/log/
+    basePath: ./src/main/resources/project/log/
 
-
+project-info:
+    basePath:./src/main/resources/project/

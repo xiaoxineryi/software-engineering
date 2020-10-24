@@ -16,15 +16,24 @@ public  class LogUtil {
     @Value("${basePath}")
     private String basePath;
 
-    public void INFO(String path,String projectName,String message){
+    private File getFile(String fileName) throws IOException {
+        File file = new File(fileName);
+        if (!file.exists()){
+            file.createNewFile();
+        }
+        return file;
+    }
+
+    public void INFO(String path,String projectName,String message) throws IOException {
         String fileName  = path+projectName+".txt";
         System.out.println(fileName);
+        File file = getFile(fileName);
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = new Date(System.currentTimeMillis());
             String d = formatter.format(date);
             String space = "      ";
-            BufferedWriter bf = new BufferedWriter(new FileWriter(fileName,true));
+            BufferedWriter bf = new BufferedWriter(new FileWriter(file,true));
             bf.write("INFO"+space);
             bf.write(d+space);
             bf.write(message);
@@ -35,7 +44,7 @@ public  class LogUtil {
             e.printStackTrace();
         }
     }
-    public void INFO(String projectName ,String message){
+    public void INFO(String projectName ,String message) throws IOException {
         INFO(basePath,projectName,message);
     }
 

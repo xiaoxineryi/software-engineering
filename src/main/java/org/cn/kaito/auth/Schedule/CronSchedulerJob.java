@@ -1,9 +1,16 @@
 package org.cn.kaito.auth.Schedule;
 
+import org.cn.kaito.auth.Dao.Entity.EntrustEntity;
+import org.cn.kaito.auth.Dao.Repository.EntrustRepository;
+import org.cn.kaito.auth.Utils.DateCronUtil;
+import org.cn.kaito.auth.Utils.EntrustEnum;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import java.util.List;
 
 @Component
 public class CronSchedulerJob {
@@ -11,36 +18,47 @@ public class CronSchedulerJob {
     @Autowired
     private SchedulerFactoryBean schedulerFactoryBean;
 
-    private void scheduleJob1(Scheduler scheduler) throws SchedulerException {
-        JobDetail jobDetail = JobBuilder.newJob(ScheduledJob.class) .withIdentity("job1", "group1").build();
-        // 6的倍数秒执行 也就是 6 12 18 24 30 36 42 ....
-        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("0/6 * * * * ?");
-        CronTrigger cronTrigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1")
-                .usingJobData("name","王智1")
-                .usingJobData("date","123")
-                .withSchedule(scheduleBuilder).build();
-        scheduler.scheduleJob(jobDetail,cronTrigger);
+    @Autowired
+    private EntrustRepository entrustRepository;
 
-        JobDetail jobDetail1 = JobBuilder.newJob(ScheduledJob.class) .withIdentity("job2", "group2").build();
-        // 6的倍数秒执行 也就是 6 12 18 24 30 36 42 ....
-        CronScheduleBuilder scheduleBuilder1 = CronScheduleBuilder.cronSchedule("0/6 * * * * ?");
-        CronTrigger cronTrigger1 = TriggerBuilder.newTrigger().withIdentity("trigger2", "group2")
-                .usingJobData("name","kaito")
-                .usingJobData("date","123")
-                .withSchedule(scheduleBuilder).build();
-        scheduler.scheduleJob(jobDetail1,cronTrigger1);
+    public void loadEntrustWork() throws SchedulerException{
+        loadWork();
     }
 
+    private void loadWork() {
+        List<EntrustEntity> entrustEntityList = entrustRepository.findAll();
+        Long tempDate = new Date().getTime();
+        for (EntrustEntity entrustEntity:entrustEntityList){
+            // 如果截止时间还没到，而且还没有被收回或完成，就加载.
+            if (entrustEntity.getEntrustEndDate().getTime()>tempDate
+                && hasPermissionToDo(entrustEntity.getStatus())){
+                addCronWork(entrustEntity);
+            }
+        }
+    }
 
-    /**
-     * @Author Smith
-     * @Description 同时启动两个定时任务
-     * @Date 16:31 2019/1/24
-     * @Param
-     * @return void
-     **/
-    public void scheduleJobs() throws SchedulerException {
+    private void addCronWork(EntrustEntity entrustEntity) {
         Scheduler scheduler = schedulerFactoryBean.getScheduler();
-        scheduleJob1(scheduler);
+        JobDetail jobDetail = JobBuilder.newJob(ScheduledJob.class) .withIdentity(String.valueOf(entrustEntity.getEntrustID())).build();
+        System.out.println("检测到任务"+entrustEntity.getEntrustID());
+        String cronTime = DateCronUtil.getCron(entrustEntity.getEntrustEndDate());
+
+        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(cronTime);
+        CronTrigger cronTrigger = TriggerBuilder.newTrigger().withIdentity(String.valueOf(entrustEntity.getEntrustID()))
+                .usingJobData("entrustID",entrustEntity.getEntrustID())
+                .withSchedule(scheduleBuilder).build();
+        try {
+            scheduler.scheduleJob(jobDetail,cronTrigger);
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean hasPermissionToDo(String status) {
+        if (status.equals(EntrustEnum.BETAKEN.getName())||status.equals(EntrustEnum.COMMIT.getName())){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
