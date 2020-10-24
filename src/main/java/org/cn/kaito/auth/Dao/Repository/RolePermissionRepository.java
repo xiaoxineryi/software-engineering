@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import java.util.List;
 
 @Repository
-public interface RolePermissionRepository extends JpaRepository<UserEntity,Integer> {
+public interface RolePermissionRepository extends JpaRepository<UserEntity,String> {
     @Query(value = "select new org.cn.kaito.auth.DTO.PermissionDTO(p.permissionName,p.permissionTarget) " +
             "from UserEntity ue left join RoleEntity r on(ue.roleID=r.roleID) " +
             "left join PermissionRoleEntity pr on(pr.RoleID = r.roleID) " +
