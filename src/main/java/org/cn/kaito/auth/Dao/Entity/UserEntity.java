@@ -1,6 +1,8 @@
 package org.cn.kaito.auth.Dao.Entity;
 
+import lombok.Builder;
 import lombok.Data;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -9,7 +11,6 @@ import javax.persistence.*;
 @Table(name = "user")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userID;
 
     private String userName;
@@ -20,5 +21,6 @@ public class UserEntity {
 
     private String token;
 
-    private Boolean isDelete;
+
+    private Boolean isDelete = false;
 }

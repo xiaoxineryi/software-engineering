@@ -13,4 +13,12 @@ public class RoleEntity {
     private int roleID;
 
     private String roleName;
+
+    public RoleEntity() {
+    }
+
+    public RoleEntity(int roleID, String roleName) {
+        this.roleID = roleID;
+        this.roleName = roleName;
+    }
 }

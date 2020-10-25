@@ -263,3 +263,35 @@ CHANGE COLUMN `creator` `creator` VARCHAR(15) NOT NULL ;
 
 ALTER TABLE `AuthControl`.`SubTask` 
 ADD COLUMN `index` INT NOT NULL AFTER `projectID`;
+ALTER TABLE `AuthControl`.`SubTask`
+CHANGE COLUMN `excutor` `executor` VARCHAR(15) NOT NULL ;
+
+CREATE TABLE `AuthControl`.`operation` (
+  `operationID` INT NOT NULL AUTO_INCREMENT,
+  `operatorID` VARCHAR(15) NOT NULL,
+  `time` DATETIME NOT NULL,
+  PRIMARY KEY (`operationID`),
+  UNIQUE INDEX `operationID_UNIQUE` (`operationID` ASC) VISIBLE);
+
+INSERT INTO `AuthControl`.`Permission` (`permissionID`, `permissionName`, `permissionTarget`) VALUES ('11', 'add', 'role');
+INSERT INTO `AuthControl`.`Permission` (`permissionID`, `permissionName`, `permissionTarget`) VALUES ('12', 'edit', 'role');
+
+INSERT INTO `AuthControl`.`PermissionRole` (`RoleID`, `PermissionID`) VALUES ('5', '11');
+INSERT INTO `AuthControl`.`PermissionRole` (`RoleID`, `PermissionID`) VALUES ('5', '12');
+
+
+ALTER TABLE `AuthControl`.`PermissionRole`
+DROP FOREIGN KEY `fk_PermissionRole_2`;
+ALTER TABLE `AuthControl`.`PermissionRole`
+CHANGE COLUMN `RoleID` `roleID` INT NOT NULL ;
+ALTER TABLE `AuthControl`.`PermissionRole`
+ADD CONSTRAINT `fk_PermissionRole_2`
+  FOREIGN KEY (`roleID`)
+  REFERENCES `AuthControl`.`RoleD` (`roleID`);
+
+
+INSERT INTO `AuthControl`.`Permission` (`permissionID`, `permissionName`, `permissionTarget`) VALUES ('13', 'add', 'permission');
+INSERT INTO `AuthControl`.`Permission` (`permissionID`, `permissionName`, `permissionTarget`) VALUES ('14', 'edit', 'permission');
+
+INSERT INTO `AuthControl`.`PermissionRole` (`roleID`, `PermissionID`) VALUES ('5', '13');
+INSERT INTO `AuthControl`.`PermissionRole` (`roleID`, `PermissionID`) VALUES ('5', '14');

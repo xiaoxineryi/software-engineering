@@ -13,11 +13,13 @@ public class SubTaskEntity {
     @Id
     private String taskID;
 
+    private Integer index;
+
     private Character taskType;
 
     private String status;
 
-    private String excutor;
+    private String executor;
 
     private String projectID;
 }
