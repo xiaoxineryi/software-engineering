@@ -1,9 +1,6 @@
 package org.cn.kaito.auth.Controller;
 
-import org.cn.kaito.auth.Controller.Request.AddRoleRequest;
-import org.cn.kaito.auth.Controller.Request.EditRoleRequest;
-import org.cn.kaito.auth.Controller.Request.EditUserRequest;
-import org.cn.kaito.auth.Controller.Request.RegisterRequest;
+import org.cn.kaito.auth.Controller.Request.*;
 import org.cn.kaito.auth.Controller.Response.RegisterResponse;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.AdminRoleService;
@@ -48,8 +45,13 @@ public class AdminController extends BaseController {
 
     @PostMapping("/addPermission")
     @PreAuthorize(value = "hasPermission('permission','add')")
-    public void addPermission(@RequestParam(name = "permission_name") String permissionName){
-        System.out.println(permissionName);
+    public void addPermission(@RequestBody PermissionAddRequest permissionAddRequest){
+        adminRoleService.addPermission(permissionAddRequest);
     }
 
+    @PostMapping("/editPermission")
+    @PreAuthorize(value = "hasPermission('permission','edit')")
+    public void editPermission(@RequestBody PermissionRequest permissionRequest){
+        adminRoleService.editPermission(permissionRequest);
+    }
 }

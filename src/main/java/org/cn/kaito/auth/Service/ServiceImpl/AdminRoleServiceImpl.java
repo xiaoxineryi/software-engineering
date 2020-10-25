@@ -2,8 +2,12 @@ package org.cn.kaito.auth.Service.ServiceImpl;
 
 import org.cn.kaito.auth.Controller.Request.AddRoleRequest;
 import org.cn.kaito.auth.Controller.Request.EditRoleRequest;
+import org.cn.kaito.auth.Controller.Request.PermissionAddRequest;
+import org.cn.kaito.auth.Controller.Request.PermissionRequest;
+import org.cn.kaito.auth.Dao.Entity.PermissionEntity;
 import org.cn.kaito.auth.Dao.Entity.PermissionRoleEntity;
 import org.cn.kaito.auth.Dao.Entity.RoleEntity;
+import org.cn.kaito.auth.Dao.Repository.PermissionRepository;
 import org.cn.kaito.auth.Dao.Repository.RolePermissionRepository;
 import org.cn.kaito.auth.Dao.Repository.RoleRepository;
 import org.cn.kaito.auth.Exception.CustomerException;
@@ -22,6 +26,8 @@ public class AdminRoleServiceImpl implements AdminRoleService {
     @Autowired
     RolePermissionRepository rolePermissionRepository;
 
+    @Autowired
+    PermissionRepository permissionRepository;
     @Override
     public void addRole(AddRoleRequest addRoleRequest) {
         RoleEntity roleEntity = new RoleEntity();
@@ -52,6 +58,23 @@ public class AdminRoleServiceImpl implements AdminRoleService {
         deleteRolePermissions(roleEntity.getRoleID());
         savePermissions(roleEntity.getRoleID(),editRoleRequest.getPermissions());
 
+    }
+
+    @Override
+    public void addPermission(PermissionAddRequest permissionAddRequest) {
+        PermissionEntity permissionEntity = new PermissionEntity();
+        permissionEntity.setPermissionName(permissionAddRequest.getPermission_name());
+        permissionEntity.setPermissionTarget(permissionAddRequest.getPermission_target());
+        permissionRepository.save(permissionEntity);
+    }
+
+    @Override
+    public void editPermission(PermissionRequest permissionRequest) {
+        PermissionEntity permissionEntity = new PermissionEntity();
+        permissionEntity.setPermissionName(permissionRequest.getPermission_name());
+        permissionEntity.setPermissionTarget(permissionRequest.getPermission_target());
+        permissionEntity.setPermissionID(permissionRequest.getPermissionID());
+        permissionRepository.save(permissionEntity);
     }
 
 
