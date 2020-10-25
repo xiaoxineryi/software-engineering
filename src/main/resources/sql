@@ -295,3 +295,9 @@ INSERT INTO `AuthControl`.`Permission` (`permissionID`, `permissionName`, `permi
 
 INSERT INTO `AuthControl`.`PermissionRole` (`roleID`, `PermissionID`) VALUES ('5', '13');
 INSERT INTO `AuthControl`.`PermissionRole` (`roleID`, `PermissionID`) VALUES ('5', '14');
+
+
+
+ALTER TABLE `AuthControl`.`user`
+ADD UNIQUE INDEX `userName_UNIQUE` (`userName` ASC) VISIBLE;
+;

@@ -1,11 +1,15 @@
 package org.cn.kaito.auth.Controller;
 
+import org.cn.kaito.auth.Controller.Request.ChangePasswordRequest;
 import org.cn.kaito.auth.Controller.Request.UserLoginRequest;
+import org.cn.kaito.auth.Controller.Response.GetUserListResponse;
 import org.cn.kaito.auth.Controller.Response.UserLoginResponse;
 import org.cn.kaito.auth.Dao.Entity.EntrustEntity;
 import org.cn.kaito.auth.Dao.Repository.EntrustRepository;
+import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.UserService;
 import org.cn.kaito.auth.Utils.DateCronUtil;
+import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +18,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController{
 
     @Autowired
     UserService userService;
@@ -23,8 +27,19 @@ public class UserController {
     EntrustRepository entrustRepository;
 
     @PostMapping("/login")
-    public UserLoginResponse login(@RequestBody UserLoginRequest userLogin){
-        return null;
+    public UserLoginResponse login(@RequestBody UserLoginRequest userLogin) throws CustomerException {
+        return userService.login(userLogin);
+    }
+
+    @PostMapping("/changePassword")
+    public void changePassword(@RequestBody ChangePasswordRequest changePasswordRequest) throws CustomerException {
+        String userID = getUid();
+        userService.changePassword(userID,changePasswordRequest);
+    }
+
+    @GetMapping("/list")
+    public GetUserListResponse getUserList(@RequestParam(name = "type") String type) throws CustomerException {
+        return userService.getFriendList(type);
     }
 
     @GetMapping("/test")

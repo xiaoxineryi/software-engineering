@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class UserLoginRequest {
-    private String userID;
-    private String userPwd;
+    private String username;
+    private String password;
 }
