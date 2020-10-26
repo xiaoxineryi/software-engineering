@@ -1,9 +1,12 @@
 package org.cn.kaito.auth.Controller.Response;
 
 import lombok.Data;
-import org.cn.kaito.auth.DTO.RandomTaskDTO;
+import org.cn.kaito.auth.DTO.SimpleTaskDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class RandomTasksResponse {
-    RandomTaskDTO tasks;
+    List<SimpleTaskDTO> tasks = new ArrayList<>();
 }

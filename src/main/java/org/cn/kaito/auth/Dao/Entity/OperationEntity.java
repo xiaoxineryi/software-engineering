@@ -15,5 +15,9 @@ public class OperationEntity {
 
     private String operatorID;
 
+    private String operationName;
+
+    private String projectID;
+
     private Date time;
 }

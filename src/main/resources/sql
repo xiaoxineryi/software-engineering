@@ -301,3 +301,36 @@ INSERT INTO `AuthControl`.`PermissionRole` (`roleID`, `PermissionID`) VALUES ('5
 ALTER TABLE `AuthControl`.`user`
 ADD UNIQUE INDEX `userName_UNIQUE` (`userName` ASC) VISIBLE;
 ;
+
+CREATE TABLE `AuthControl`.`TaskType` (
+  `typeID` INT NOT NULL AUTO_INCREMENT,
+  `type_name` CHAR(1) NOT NULL,
+  PRIMARY KEY (`typeID`),
+  UNIQUE INDEX `typeID_UNIQUE` (`typeID` ASC) VISIBLE,
+  UNIQUE INDEX `type_name_UNIQUE` (`type_name` ASC) VISIBLE);
+
+ALTER TABLE `AuthControl`.`SubTask`
+CHANGE COLUMN `taskType` `typeID` INT NOT NULL ,
+ADD INDEX `fk_SubTask_1_idx` (`typeID` ASC) VISIBLE;
+;
+ALTER TABLE `AuthControl`.`SubTask`
+ADD CONSTRAINT `fk_SubTask_1`
+  FOREIGN KEY (`typeID`)
+  REFERENCES `AuthControl`.`TaskType` (`typeID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+INSERT INTO `AuthControl`.`TaskType` (`typeID`, `type_name`) VALUES ('1', 'A');
+INSERT INTO `AuthControl`.`TaskType` (`typeID`, `type_name`) VALUES ('2', 'B');
+INSERT INTO `AuthControl`.`TaskType` (`typeID`, `type_name`) VALUES ('3', 'C');
+
+ALTER TABLE `AuthControl`.`SubTask`
+CHANGE COLUMN `executor` `executor` VARCHAR(15) NULL ;
+ALTER TABLE `AuthControl`.`SubTask`
+CHANGE COLUMN `executor` `executor` VARCHAR(15) NOT NULL ;
+
+ALTER TABLE `AuthControl`.`operation`
+ADD COLUMN `operationName` VARCHAR(10) NOT NULL AFTER `time`;
+
+ALTER TABLE `AuthControl`.`operation`
+ADD COLUMN `projectID` VARCHAR(20) NOT NULL AFTER `operationName`;

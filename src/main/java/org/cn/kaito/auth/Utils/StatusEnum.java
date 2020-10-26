@@ -8,6 +8,7 @@ public enum StatusEnum {
     WRONG_TOKEN_FOR_USER(401, "自动登录已过期，请重新登录"),
     ACCOUNT_HAS_BEEN_DELETED(401,"帐号已经被注销"),
     WRONG_ACCOUNT_OR_PASSWORD(402, "帐号或密码错误"),
+    DONT_HAVE_PERMISSION_GETLOG(403,"没有权限获取项目日志信息"),
     FORBIDDEN(403, "请登录后访问"),
     CANT_FIND_GAME(404, "您输入的游戏编号不存在"),
     CANT_FIND_ROOM(405, "您输入的房间号不存在"),

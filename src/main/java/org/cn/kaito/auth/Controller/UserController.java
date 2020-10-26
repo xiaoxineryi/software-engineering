@@ -6,6 +6,7 @@ import org.cn.kaito.auth.Controller.Response.GetUserListResponse;
 import org.cn.kaito.auth.Controller.Response.NoticeCountResponse;
 import org.cn.kaito.auth.Controller.Response.NoticeResponse;
 import org.cn.kaito.auth.Controller.Response.UserLoginResponse;
+import org.cn.kaito.auth.DTO.UserDTO;
 import org.cn.kaito.auth.Dao.Entity.EntrustEntity;
 import org.cn.kaito.auth.Dao.Repository.EntrustRepository;
 import org.cn.kaito.auth.Exception.CustomerException;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -41,7 +43,10 @@ public class UserController extends BaseController{
 
     @GetMapping("/list")
     public GetUserListResponse getUserList(@RequestParam(name = "type") String type) throws CustomerException {
-        return userService.getFriendList(type);
+        List<UserDTO> userDTOS =  userService.getUserList(type);
+        GetUserListResponse getUserListResponse = new GetUserListResponse();
+        getUserListResponse.setUsers(userDTOS);
+        return getUserListResponse;
     }
 
     @GetMapping("/notice")

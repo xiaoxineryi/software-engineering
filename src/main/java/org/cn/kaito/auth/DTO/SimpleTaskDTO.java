@@ -4,7 +4,8 @@ import lombok.Data;
 import org.springframework.data.domain.PageRequest;
 
 @Data
-public class RandomTaskDTO {
+public class SimpleTaskDTO {
+    private Integer typeID;
     private String type;
     OwnerDTO owner;
 }

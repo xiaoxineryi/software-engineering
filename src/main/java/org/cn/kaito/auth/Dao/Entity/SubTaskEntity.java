@@ -15,7 +15,7 @@ public class SubTaskEntity {
 
     private Integer index;
 
-    private Character taskType;
+    private Integer typeID;
 
     private String status;
 

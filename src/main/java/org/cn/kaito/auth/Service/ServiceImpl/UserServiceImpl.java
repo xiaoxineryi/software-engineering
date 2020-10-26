@@ -53,17 +53,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public GetUserListResponse getFriendList(String type) throws CustomerException {
+    public List<UserDTO> getUserList(String type) throws CustomerException {
         if (type.isEmpty()){
             List<UserDTO> users = userRepository.getUserDTOs();
-            GetUserListResponse getUserListResponse = new GetUserListResponse();
-            getUserListResponse.setUsers(users);
-            return getUserListResponse;
+            return users;
         }else{
             List<UserDTO> users = userRepository.getUserDTOsByType(type);
-            GetUserListResponse getUserListResponse = new GetUserListResponse();
-            getUserListResponse.setUsers(users);
-            return getUserListResponse;
+            return users;
         }
 
     }
@@ -79,12 +75,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public GetUserByIDResponse getUserByID(String uid) throws CustomerException {
+    public UserDTO getUserByID(String uid) throws CustomerException {
         UserDTO userDTO  = userRepository.getUserDTOsByID(uid)
                             .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
-        GetUserByIDResponse response = new GetUserByIDResponse();
-        response.setUser(userDTO);
-        return response;
+
+        return userDTO;
     }
 
     @Override

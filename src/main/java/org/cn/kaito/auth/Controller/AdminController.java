@@ -65,7 +65,10 @@ public class AdminController extends BaseController {
 
     @GetMapping("/user/{uid}")
     public GetUserByIDResponse getUserById(@PathVariable(name = "uid") String uid) throws CustomerException {
-        return userService.getUserByID(uid);
+        UserDTO userDTO = userService.getUserByID(uid);
+        GetUserByIDResponse getUserByIDResponse = new GetUserByIDResponse();
+        getUserByIDResponse.setUser(userDTO);
+        return getUserByIDResponse;
     }
 
     @PreAuthorize("hasPermission('permission','edit')")
