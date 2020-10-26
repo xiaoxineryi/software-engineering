@@ -1,6 +1,8 @@
 package org.cn.kaito.auth.Controller;
 
 import org.aspectj.util.FileUtil;
+import org.cn.kaito.auth.Controller.Response.RandomTasksResponse;
+import org.cn.kaito.auth.Service.ProjectService;
 import org.cn.kaito.auth.Service.WorkExecuteService;
 import org.cn.kaito.auth.Utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,14 @@ public class ProjectController extends BaseController{
 
     @Autowired
     WorkExecuteService workExecuteService;
+
+    @Autowired
+    ProjectService projectService;
+
+    @GetMapping("random")
+    public RandomTasksResponse getRandomTasks(){
+    return null;
+    }
 
     @GetMapping("/read")
     public void readProject() throws IOException {

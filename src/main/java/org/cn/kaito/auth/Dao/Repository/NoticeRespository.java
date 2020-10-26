@@ -27,4 +27,6 @@ public interface NoticeRespository extends JpaRepository<NoticeEntity,Integer> {
     @Modifying
     @Query(value = "update NoticeEntity n set  n.isRead = true where n.receiver = ?1")
     void updateNotice(String uid);
+
+
 }
