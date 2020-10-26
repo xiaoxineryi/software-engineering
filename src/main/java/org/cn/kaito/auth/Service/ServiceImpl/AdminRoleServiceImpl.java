@@ -4,6 +4,10 @@ import org.cn.kaito.auth.Controller.Request.AddRoleRequest;
 import org.cn.kaito.auth.Controller.Request.EditRoleRequest;
 import org.cn.kaito.auth.Controller.Request.PermissionAddRequest;
 import org.cn.kaito.auth.Controller.Request.PermissionRequest;
+import org.cn.kaito.auth.Controller.Response.PermissionResponse;
+import org.cn.kaito.auth.Controller.Response.RolesResponse;
+import org.cn.kaito.auth.DTO.PermissionDTO;
+import org.cn.kaito.auth.DTO.RoleDTO;
 import org.cn.kaito.auth.Dao.Entity.PermissionEntity;
 import org.cn.kaito.auth.Dao.Entity.PermissionRoleEntity;
 import org.cn.kaito.auth.Dao.Entity.RoleEntity;
@@ -16,6 +20,7 @@ import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.relation.Role;
 import java.util.List;
 
 @Service
@@ -75,6 +80,30 @@ public class AdminRoleServiceImpl implements AdminRoleService {
         permissionEntity.setPermissionTarget(permissionRequest.getPermission_target());
         permissionEntity.setPermissionID(permissionRequest.getPermissionID());
         permissionRepository.save(permissionEntity);
+    }
+
+    @Override
+    public RolesResponse getRoles() {
+        RolesResponse rolesResponse = new RolesResponse();
+        List<RoleDTO> roleDTOS = roleRepository.getAll();
+        rolesResponse.setRoles(roleDTOS);
+        return rolesResponse;
+    }
+
+    @Override
+    public PermissionResponse getPermissions() {
+        PermissionResponse permissionResponse = new PermissionResponse();
+        List<PermissionDTO> permissionDTOS = permissionRepository.getAll();
+        permissionResponse.setPermissions(permissionDTOS);
+        return permissionResponse;
+    }
+
+    @Override
+    public PermissionResponse getPermissionsByRoleID(int roleID) {
+        PermissionResponse permissionResponse = new PermissionResponse();
+        List<PermissionDTO> permissionDTOS = permissionRepository.getByRoleID(roleID);
+        permissionResponse.setPermissions(permissionDTOS);
+        return permissionResponse;
     }
 
 

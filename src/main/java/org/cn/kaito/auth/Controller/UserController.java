@@ -3,6 +3,7 @@ package org.cn.kaito.auth.Controller;
 import org.cn.kaito.auth.Controller.Request.ChangePasswordRequest;
 import org.cn.kaito.auth.Controller.Request.UserLoginRequest;
 import org.cn.kaito.auth.Controller.Response.GetUserListResponse;
+import org.cn.kaito.auth.Controller.Response.NoticeResponse;
 import org.cn.kaito.auth.Controller.Response.UserLoginResponse;
 import org.cn.kaito.auth.Dao.Entity.EntrustEntity;
 import org.cn.kaito.auth.Dao.Repository.EntrustRepository;
@@ -41,6 +42,14 @@ public class UserController extends BaseController{
     public GetUserListResponse getUserList(@RequestParam(name = "type") String type) throws CustomerException {
         return userService.getFriendList(type);
     }
+
+    @GetMapping("/notice")
+    public NoticeResponse getNotices(@RequestParam(name = "page") int page){
+        NoticeResponse noticeResponse = userService.getNotices(getUid(),page);
+        return noticeResponse;
+    }
+
+
 
     @GetMapping("/test")
     public void test(){

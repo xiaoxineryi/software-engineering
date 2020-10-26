@@ -2,26 +2,33 @@ package org.cn.kaito.auth.Service.ServiceImpl;
 
 import org.cn.kaito.auth.Controller.Request.ChangePasswordRequest;
 import org.cn.kaito.auth.Controller.Request.UserLoginRequest;
+import org.cn.kaito.auth.Controller.Response.GetUserByIDResponse;
 import org.cn.kaito.auth.Controller.Response.GetUserListResponse;
+import org.cn.kaito.auth.Controller.Response.NoticeResponse;
 import org.cn.kaito.auth.Controller.Response.UserLoginResponse;
+import org.cn.kaito.auth.DTO.NoticeDTO;
 import org.cn.kaito.auth.DTO.UserDTO;
 import org.cn.kaito.auth.Dao.Entity.UserEntity;
+import org.cn.kaito.auth.Dao.Repository.NoticeRespository;
 import org.cn.kaito.auth.Dao.Repository.UserRepository;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.UserService;
 import org.cn.kaito.auth.Utils.StatusEnum;
 import org.cn.kaito.auth.Utils.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    NoticeRespository noticeRespository;
     @Override
     public UserLoginResponse login(UserLoginRequest userLoginRequest) throws CustomerException {
         UserEntity userEntity = userRepository.getUserEntityByUserNameAndUserPwd(
@@ -62,6 +69,24 @@ public class UserServiceImpl implements UserService {
             return getUserListResponse;
         }
 
+    }
+
+    @Override
+    public NoticeResponse getNotices(String uid,int page) {
+        Pageable pageable = PageRequest.of(page,10);
+        List<NoticeDTO> notices = noticeRespository.findNoticeDTOSByReceiver(uid,pageable);
+        NoticeResponse noticeResponse = new NoticeResponse();
+        noticeResponse.setNotices(notices);
+        return noticeResponse;
+    }
+
+    @Override
+    public GetUserByIDResponse getUserByID(String uid) throws CustomerException {
+        UserDTO userDTO  = userRepository.getUserDTOsByID(uid)
+                            .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+        GetUserByIDResponse response = new GetUserByIDResponse();
+        response.setUser(userDTO);
+        return response;
     }
 
 }

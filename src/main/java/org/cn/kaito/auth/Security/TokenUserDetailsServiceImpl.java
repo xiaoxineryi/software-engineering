@@ -39,7 +39,7 @@ public class TokenUserDetailsServiceImpl implements UserDetailsService {
 
         for (PermissionDTO permission:permissionDTOS){
             authorities.add(new SimpleGrantedAuthority(String.format("%s-%s",
-                    permission.getPermissionTarget(),permission.getPermissionName())));
+                    permission.getPermission_target(),permission.getPermission_name())));
         }
         return new SecurityUser(userID,user.getUserPwd(),authorities);
 

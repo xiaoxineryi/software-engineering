@@ -19,11 +19,15 @@ public interface UserRepository extends JpaRepository<UserEntity,String>{
     Optional<UserEntity> getUserEntityByUserIDAndUserPwd(String userID,String password);
     Optional<UserEntity> getUserEntityByUserNameAndUserPwd(String userName, String password);
 
-    @Query("select new org.cn.kaito.auth.DTO.UserDTO(u.userName,u.userID,r.roleName)" +
+    @Query("select new org.cn.kaito.auth.DTO.UserDTO(u.userName,u.userID,r.roleName,u.roleID,u.isDelete)" +
             "from UserEntity u join RoleEntity r on u.roleID=r.roleID")
     List<UserDTO> getUserDTOs();
 
-    @Query("select new org.cn.kaito.auth.DTO.UserDTO(u.userName,u.userID,r.roleName)" +
+    @Query("select new org.cn.kaito.auth.DTO.UserDTO(u.userName,u.userID,r.roleName,u.roleID,u.isDelete)" +
             "from UserEntity u join RoleEntity r on u.roleID=r.roleID where r.roleName=?1")
     List<UserDTO> getUserDTOsByType(String type);
+
+    @Query("select new org.cn.kaito.auth.DTO.UserDTO(u.userName,u.userID,r.roleName,u.roleID,u.isDelete)" +
+            "from UserEntity u join RoleEntity r on u.roleID=r.roleID where u.userID=?1")
+    Optional<UserDTO> getUserDTOsByID(String uid);
 }

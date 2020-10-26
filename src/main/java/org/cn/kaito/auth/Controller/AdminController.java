@@ -1,7 +1,11 @@
 package org.cn.kaito.auth.Controller;
 
 import org.cn.kaito.auth.Controller.Request.*;
+import org.cn.kaito.auth.Controller.Response.GetUserByIDResponse;
+import org.cn.kaito.auth.Controller.Response.PermissionResponse;
 import org.cn.kaito.auth.Controller.Response.RegisterResponse;
+import org.cn.kaito.auth.Controller.Response.RolesResponse;
+import org.cn.kaito.auth.DTO.UserDTO;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.AdminRoleService;
 import org.cn.kaito.auth.Service.AdminUserService;
@@ -19,6 +23,10 @@ public class AdminController extends BaseController {
 
     @Autowired
     AdminRoleService adminRoleService;
+
+    @Autowired
+    UserService userService;
+
     @PostMapping("/addUser")
     @PreAuthorize(value = "hasPermission('user','add')")
     public RegisterResponse addUser(@RequestBody RegisterRequest registerRequest){
@@ -54,4 +62,27 @@ public class AdminController extends BaseController {
     public void editPermission(@RequestBody PermissionRequest permissionRequest){
         adminRoleService.editPermission(permissionRequest);
     }
+
+    @GetMapping("/user/{uid}")
+    public GetUserByIDResponse getUserById(@PathVariable(name = "uid") String uid) throws CustomerException {
+        return userService.getUserByID(uid);
+    }
+
+    @PreAuthorize("hasPermission('permission','edit')")
+    @GetMapping("/listRole")
+    public RolesResponse getRoleList(){
+        return adminRoleService.getRoles();
+    }
+
+    @PreAuthorize("hasPermission('permission','edit')")
+    @GetMapping("/listPermission")
+    public PermissionResponse getPermissionList(){
+        return adminRoleService.getPermissions();
+    }
+
+    @GetMapping("/{roleID}/permissions")
+    public PermissionResponse getPermissionByRoleID(@PathVariable(name = "roleID") int roleID){
+        return adminRoleService.getPermissionsByRoleID(roleID);
+    }
+
 }
