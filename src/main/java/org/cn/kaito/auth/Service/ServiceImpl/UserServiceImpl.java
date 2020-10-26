@@ -2,10 +2,7 @@ package org.cn.kaito.auth.Service.ServiceImpl;
 
 import org.cn.kaito.auth.Controller.Request.ChangePasswordRequest;
 import org.cn.kaito.auth.Controller.Request.UserLoginRequest;
-import org.cn.kaito.auth.Controller.Response.GetUserByIDResponse;
-import org.cn.kaito.auth.Controller.Response.GetUserListResponse;
-import org.cn.kaito.auth.Controller.Response.NoticeResponse;
-import org.cn.kaito.auth.Controller.Response.UserLoginResponse;
+import org.cn.kaito.auth.Controller.Response.*;
 import org.cn.kaito.auth.DTO.NoticeDTO;
 import org.cn.kaito.auth.DTO.UserDTO;
 import org.cn.kaito.auth.Dao.Entity.UserEntity;
@@ -77,6 +74,7 @@ public class UserServiceImpl implements UserService {
         List<NoticeDTO> notices = noticeRespository.findNoticeDTOSByReceiver(uid,pageable);
         NoticeResponse noticeResponse = new NoticeResponse();
         noticeResponse.setNotices(notices);
+        noticeRespository.updateNotice(uid);
         return noticeResponse;
     }
 
@@ -87,6 +85,15 @@ public class UserServiceImpl implements UserService {
         GetUserByIDResponse response = new GetUserByIDResponse();
         response.setUser(userDTO);
         return response;
+    }
+
+    @Override
+    public NoticeCountResponse getUnreadNotices(String uid) {
+        int cnt = noticeRespository.countUnreadNotice(uid);
+        NoticeCountResponse noticeCountResponse = new NoticeCountResponse();
+        noticeCountResponse.setCount(cnt);
+        System.out.println(cnt);
+        return noticeCountResponse;
     }
 
 }

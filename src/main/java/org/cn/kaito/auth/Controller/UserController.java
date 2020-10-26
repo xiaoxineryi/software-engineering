@@ -3,6 +3,7 @@ package org.cn.kaito.auth.Controller;
 import org.cn.kaito.auth.Controller.Request.ChangePasswordRequest;
 import org.cn.kaito.auth.Controller.Request.UserLoginRequest;
 import org.cn.kaito.auth.Controller.Response.GetUserListResponse;
+import org.cn.kaito.auth.Controller.Response.NoticeCountResponse;
 import org.cn.kaito.auth.Controller.Response.NoticeResponse;
 import org.cn.kaito.auth.Controller.Response.UserLoginResponse;
 import org.cn.kaito.auth.Dao.Entity.EntrustEntity;
@@ -49,7 +50,10 @@ public class UserController extends BaseController{
         return noticeResponse;
     }
 
-
+    @GetMapping("/cntUnreadMsg")
+    public NoticeCountResponse cntUnreadMsg(){
+        return userService.getUnreadNotices(getUid());
+    }
 
     @GetMapping("/test")
     public void test(){
