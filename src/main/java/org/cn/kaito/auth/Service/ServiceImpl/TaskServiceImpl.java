@@ -1,13 +1,14 @@
 package org.cn.kaito.auth.Service.ServiceImpl;
 
+import org.cn.kaito.auth.DTO.EntrustTaskDTO;
+import org.cn.kaito.auth.DTO.OwnerDTO;
+import org.cn.kaito.auth.DTO.SelfTaskDTO;
 import org.cn.kaito.auth.DTO.UserDTO;
+import org.cn.kaito.auth.Dao.Entity.EntrustEntity;
 import org.cn.kaito.auth.Dao.Entity.ProjectEntity;
 import org.cn.kaito.auth.Dao.Entity.SubTaskEntity;
 import org.cn.kaito.auth.Dao.Entity.UserEntity;
-import org.cn.kaito.auth.Dao.Repository.ProjectRepository;
-import org.cn.kaito.auth.Dao.Repository.TaskRepository;
-import org.cn.kaito.auth.Dao.Repository.TypeRepository;
-import org.cn.kaito.auth.Dao.Repository.UserRepository;
+import org.cn.kaito.auth.Dao.Repository.*;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.*;
 import org.cn.kaito.auth.Utils.StatusEnum;
@@ -16,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,6 +37,9 @@ public class TaskServiceImpl implements TaskService {
 
     @Autowired
     SessionService sessionService;
+
+    @Autowired
+    EntrustRepository entrustRepository;
 
     @Autowired
     NoticeService noticeService;
@@ -127,5 +133,82 @@ public class TaskServiceImpl implements TaskService {
             taskRepository.save(subTaskEntity);
             logService.saveLog(uid,projectEntity.getProjectID(),"撤销执行"+type+"类任务");
         }
+    }
+
+    @Override
+    public List<SelfTaskDTO> getSelfTasks(String uid) throws CustomerException {
+        List<SubTaskEntity> tasks = taskRepository.findSubTaskEntitiesByExecutor(uid);
+        List<SelfTaskDTO> selfTaskDTOS = new ArrayList<>();
+        for (SubTaskEntity task : tasks){
+            SelfTaskDTO selfTaskDTO = new SelfTaskDTO();
+            selfTaskDTO.setTaskID(task.getTaskID());
+            ProjectEntity projectEntity = projectRepository.findById(task.getProjectID())
+                                    .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+            selfTaskDTO.setProjectID(projectEntity.getProjectID());
+            selfTaskDTO.setProjectName(projectEntity.getProjectName());
+            String status = task.getStatus();
+            //如果是代理状态，就返回代理人
+            if (status.equals(WorkStatus.DELEGATE.getName())){
+                EntrustEntity entrustEntity = entrustRepository.findEntrustEntityBySubTask(task.getTaskID())
+                                        .orElseThrow(()->new CustomerException(StatusEnum.DELEGATE_NOT_FOUND));
+                UserDTO userDTO= userRepository.getUserDTOsByID(entrustEntity.getEntrustWorker())
+                                        .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+                OwnerDTO ownerDTO = new OwnerDTO();
+                ownerDTO.setId(entrustEntity.getEntrustWorker());
+                ownerDTO.setName(userDTO.getUsername());
+                selfTaskDTO.setConsignee(ownerDTO);
+            }
+            selfTaskDTO.setWorkStatus(task.getStatus());
+            //如果是完成状态，就查一下有没有委托，有的话看委托状态。
+            if (status.equals(WorkStatus.DONE.getName())){
+                UserDTO userDTO = null;
+                Optional<EntrustEntity> entrustEntity = entrustRepository.findEntrustEntityBySubTask(task.getTaskID());
+                if (entrustEntity.isPresent()){
+                    EntrustEntity entrust = entrustEntity.get();
+                    if (entrust.getStatus().equals(WorkStatus.DONE.getName())){
+                         userDTO= userRepository.getUserDTOsByID(entrust.getEntrustWorker())
+                                .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+                    }else {
+                        userDTO= userRepository.getUserDTOsByID(task.getExecutor())
+                                .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+                    }
+                }else {
+                   userDTO= userRepository.getUserDTOsByID(task.getExecutor())
+                            .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+                }
+                OwnerDTO ownerDTO = new OwnerDTO();
+                ownerDTO.setId(userDTO.getUserID());
+                ownerDTO.setName(userDTO.getUsername());
+                selfTaskDTO.setExecutor(ownerDTO);
+            }
+            selfTaskDTOS.add(selfTaskDTO);
+        }
+        return selfTaskDTOS;
+    }
+
+    @Override
+    public List<EntrustTaskDTO> getEntrustTasks(String uid) throws CustomerException {
+       List<EntrustTaskDTO> entrustTaskDTOS = new ArrayList<>();
+       List<EntrustEntity> entrustEntities = entrustRepository.findAllByEntrustWorker(uid);
+       for (EntrustEntity entrustEntity:entrustEntities){
+           EntrustTaskDTO entrustTaskDTO = new EntrustTaskDTO();
+           SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(entrustEntity.getSubTask())
+                                .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_DELEGATE));
+           ProjectEntity projectEntity = projectRepository.findById(subTaskEntity.getProjectID())
+                                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+           entrustTaskDTO.setProjectID(projectEntity.getProjectID());
+           entrustTaskDTO.setProjectName(projectEntity.getProjectName());
+           entrustTaskDTO.setTaskID(subTaskEntity.getTaskID());
+           entrustTaskDTO.setWorkStatus(subTaskEntity.getStatus());
+           UserDTO userDTO= userRepository.getUserDTOsByID(entrustEntity.getEntrustWorker())
+                   .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+           OwnerDTO ownerDTO = new OwnerDTO();
+           ownerDTO.setId(userDTO.getUserID());
+           ownerDTO.setName(userDTO.getUsername());
+           entrustTaskDTO.setConsiger(ownerDTO);
+
+           entrustTaskDTOS.add(entrustTaskDTO);
+       }
+       return entrustTaskDTOS;
     }
 }

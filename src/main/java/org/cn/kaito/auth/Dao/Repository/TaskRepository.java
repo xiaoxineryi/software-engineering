@@ -18,6 +18,8 @@ public interface TaskRepository extends JpaRepository<SubTaskEntity,String> {
             "where en.entrustWorker = ?1 and p.projectID = ?2")
     Optional<String> findEntrustWorkByEntrustorandProjectID (String uid,String pid);
 
+    List<SubTaskEntity> findSubTaskEntitiesByExecutor(String uid);
+
     List<SubTaskEntity> findAllByProjectIDOrderByTaskPosition(String projectID);
 
     List<SubTaskEntity> findAllByProjectIDAndStatusNotContainsOrderByTaskPosition(String projectID,String status);
