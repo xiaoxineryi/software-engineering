@@ -9,6 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "operation")
 public class OperationEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int operationID;
@@ -20,4 +21,5 @@ public class OperationEntity {
     private String projectID;
 
     private Date time;
+
 }

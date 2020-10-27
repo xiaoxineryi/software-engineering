@@ -2,9 +2,7 @@ package org.cn.kaito.auth.Dao.Entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -12,6 +10,7 @@ import java.util.Date;
 @Table(name = "Entrust")
 public class EntrustEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int entrustID;
 
     private String status;

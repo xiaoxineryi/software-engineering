@@ -22,6 +22,20 @@ public class WorkExecuteServiceImpl implements WorkExecuteService {
     public String getBasePath(){return basePath;}
 
     @Override
+    public void init(String basePath, String projectName) throws IOException {
+        String path = basePath+projectName+"/"+projectName+".txt";
+        String backPath = basePath+projectName+"/"+projectName+".backup";
+        System.out.println(path);
+        File file = getFile(path);
+        File fileBack = getFile(backPath);
+    }
+
+    @Override
+    public void init(String projectName) throws IOException {
+        init(basePath,projectName);
+    }
+
+    @Override
     public void save(String basePath, String projectName) {
 
     }
@@ -62,6 +76,9 @@ public class WorkExecuteServiceImpl implements WorkExecuteService {
     }
     private File getFile(String fileName) throws IOException {
         File file = new File(fileName);
+        if (!file.getParentFile().exists()) {
+            file.getParentFile().mkdirs();
+        }
         if (!file.exists()){
             file.createNewFile();
         }

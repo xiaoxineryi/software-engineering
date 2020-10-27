@@ -14,14 +14,17 @@ import org.cn.kaito.auth.Service.LogService;
 import org.cn.kaito.auth.Utils.DateStringUtil;
 import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class LogServiceImpl implements LogService {
+
 
     @Autowired
     LogRepository logRepository;
@@ -52,6 +55,18 @@ public class LogServiceImpl implements LogService {
         }
         return logDTOs;
     }
+
+    @Override
+    public void saveLog(String uid, String projectID, String operationName) {
+        OperationEntity operationEntity = new OperationEntity();
+        operationEntity.setOperatorID(uid);
+        operationEntity.setOperationName(operationName);
+        operationEntity.setProjectID(projectID);
+        operationEntity.setTime(new Date());
+        System.out.println(operationEntity);
+        logRepository.save(operationEntity);
+    }
+
 
     /**
      *

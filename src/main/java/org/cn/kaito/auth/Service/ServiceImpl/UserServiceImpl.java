@@ -40,8 +40,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String getUserIDByToken(String token) {
-        return "kaito";
+    public String getUserIDByToken(String token) throws CustomerException {
+        return userRepository.findUserEntityByToken(token)
+                .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER)).getUserID();
     }
 
     @Override

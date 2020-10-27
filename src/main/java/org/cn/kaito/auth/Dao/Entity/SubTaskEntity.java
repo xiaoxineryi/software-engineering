@@ -13,7 +13,7 @@ public class SubTaskEntity {
     @Id
     private String taskID;
 
-    private Integer index;
+    private int taskPosition;
 
     private Integer typeID;
 

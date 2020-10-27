@@ -334,3 +334,6 @@ ADD COLUMN `operationName` VARCHAR(10) NOT NULL AFTER `time`;
 
 ALTER TABLE `AuthControl`.`operation`
 ADD COLUMN `projectID` VARCHAR(20) NOT NULL AFTER `operationName`;
+
+ALTER TABLE `AuthControl`.`SubTask`
+CHANGE COLUMN `index` `taskPosition` INT NOT NULL ;

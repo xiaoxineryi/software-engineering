@@ -1,6 +1,7 @@
 package org.cn.kaito.auth.Controller;
 
 import org.cn.kaito.auth.Controller.Request.CreateProjectRequest;
+import org.cn.kaito.auth.Controller.Request.EditProjectRequest;
 import org.cn.kaito.auth.Controller.Response.LogResponse;
 import org.cn.kaito.auth.Controller.Response.RandomTasksResponse;
 import org.cn.kaito.auth.Controller.Response.SimpleProjectResponse;
@@ -13,6 +14,7 @@ import org.cn.kaito.auth.Service.WorkExecuteService;
 import org.cn.kaito.auth.Utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -42,7 +44,7 @@ public class ProjectController extends BaseController{
 
     @PostMapping("/create")
     @PreAuthorize(value = "hasPermission('project','create')")
-    public void createProject(@RequestBody CreateProjectRequest createProjectRequest) throws CustomerException {
+    public void createProject(@RequestBody CreateProjectRequest createProjectRequest) throws CustomerException, IOException {
         projectService.createProject(getUid(),createProjectRequest);
     }
 
@@ -63,6 +65,17 @@ public class ProjectController extends BaseController{
         return logResponse;
     }
 
+    @PostMapping("/editProject")
+    @PreAuthorize(value = "hasPermission('project','edit')")
+    public void editProject(@RequestBody EditProjectRequest editProjectRequest) throws CustomerException {
+        projectService.editProject(getUid(),editProjectRequest);
+    }
+
+    @GetMapping("/stop")
+    @PreAuthorize(value = "hasPermission('project','end')")
+    public void stopProject(@RequestParam(name = "projectID") String projectID) throws CustomerException {
+        projectService.stopProject(getUid(),projectID);
+    }
 
 //    @GetMapping("/read")
 //    public void readProject() throws IOException {

@@ -24,26 +24,22 @@ public class SessionServiceImpl implements SessionService {
     public void addByToken(String token,Session session) throws CustomerException {
         String userID = userService.getUserIDByToken(token);
         addByID(userID,session);
+        System.out.println(token);
+        System.out.println(userID);
         sendMessage(userID,"succeed");
     }
 
     @Override
     public void sendMessage(String userID, String message) throws CustomerException {
         if (workers.containsKey(userID)){
-            workers.get(userID).getAsyncRemote().sendText(message);
-        }else{
-            throw new CustomerException(StatusEnum.CANT_FIND_USER);
+            workers.get(userID).getAsyncRemote().sendObject(message);
         }
     }
 
     @Override
     public void close(String token) throws CustomerException {
         String userID = userService.getUserIDByToken(token);
-        if (workers.containsKey(userID)){
-            workers.remove(userID);
-        }else{
-            throw new CustomerException(StatusEnum.CANT_FIND_USER);
-        }
+        workers.remove(userID);
     }
 
 

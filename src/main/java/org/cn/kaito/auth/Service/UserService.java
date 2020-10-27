@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserService {
     UserLoginResponse login(UserLoginRequest userLoginRequest) throws CustomerException;
 
-    String getUserIDByToken(String token);
+    String getUserIDByToken(String token) throws CustomerException;
 
     void changePassword(String userID,ChangePasswordRequest changePasswordRequest) throws CustomerException;
 
