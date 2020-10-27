@@ -21,4 +21,8 @@ public interface TaskRepository extends JpaRepository<SubTaskEntity,String> {
     List<SubTaskEntity> findAllByProjectIDOrderByTaskPosition(String projectID);
 
     List<SubTaskEntity> findAllByProjectIDAndStatusNotContainsOrderByTaskPosition(String projectID,String status);
+
+    Optional<SubTaskEntity> findByProjectIDAndTaskPosition(String projectID,int taskPosition);
+
+    Optional<SubTaskEntity> findSubTaskEntityByTaskID(String taskID);
 }

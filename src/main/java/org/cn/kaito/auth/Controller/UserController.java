@@ -14,6 +14,7 @@ import org.cn.kaito.auth.Service.UserService;
 import org.cn.kaito.auth.Utils.DateCronUtil;
 import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@PreAuthorize("hasPermission('project','read')")
 public class UserController extends BaseController{
 
     @Autowired

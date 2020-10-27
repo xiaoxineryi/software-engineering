@@ -4,3 +4,5 @@ log-info:
 project-info:
     basePath:./src/main/resources/project/
 
+user-info:
+    deleteID:6

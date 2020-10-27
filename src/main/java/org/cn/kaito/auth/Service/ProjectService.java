@@ -20,4 +20,6 @@ public interface ProjectService {
     void editProject(String uid, EditProjectRequest editProjectRequest) throws CustomerException;
 
     void stopProject(String uid,String projectID) throws CustomerException;
+
+    void restart(String uid, String projectID) throws CustomerException;
 }

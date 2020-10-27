@@ -36,7 +36,9 @@ public class UserServiceImpl implements UserService {
         }
         userEntity.setToken(TokenUtil.createToken());
         userRepository.save(userEntity);
-        return new UserLoginResponse(userEntity.getToken());
+        UserDTO userDTO  = userRepository.getUserDTOsByID(userEntity.getUserID())
+                        .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+        return new UserLoginResponse(userEntity.getToken(),userDTO);
     }
 
     @Override

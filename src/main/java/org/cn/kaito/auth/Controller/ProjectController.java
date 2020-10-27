@@ -77,6 +77,11 @@ public class ProjectController extends BaseController{
         projectService.stopProject(getUid(),projectID);
     }
 
+    @GetMapping("/restart")
+    @PreAuthorize(value = "hasPermission('project','restart')")
+    public void restartProject(@RequestParam(name = "projectID") String projectID) throws CustomerException {
+        projectService.restart(getUid(),projectID);
+    }
 //    @GetMapping("/read")
 //    public void readProject() throws IOException {
 //        System.out.println("nice");

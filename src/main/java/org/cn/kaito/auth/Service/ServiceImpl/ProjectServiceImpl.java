@@ -221,6 +221,50 @@ public class ProjectServiceImpl implements ProjectService {
         }
     }
 
+    @Override
+    @Transactional
+    public void restart(String uid, String projectID) throws CustomerException {
+        ProjectEntity projectEntity = projectRepository.findById(projectID)
+                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+        if (projectEntity.getStatus().equals(ProjectStatus.DONE.getName())){
+            throw new CustomerException(StatusEnum.PROJECT_HAS_BEEN_DONE);
+        }else if(!projectEntity.getStatus().equals(ProjectStatus.STOP.getName())){
+            throw new CustomerException(StatusEnum.PROJECY_HAS_BEEN_STOPED);
+        }
+        projectEntity.setStatus(ProjectStatus.DOING.getName());
+        projectRepository.save(projectEntity);
+        List<SubTaskEntity> tasks = taskRepository.findAllByProjectIDOrderByTaskPosition(projectID);
+        List<String> users = new ArrayList<>();
+        boolean isFirst = true;
+        for (SubTaskEntity task:tasks){
+            if (task.getStatus().equals(WorkStatus.DONE.getName())){
+                // 如果是已经完成，那么就只给一个通知即可
+                users.add(task.getExecutor());
+            }else if (!task.getStatus().equals(WorkStatus.STOP.getName())){
+                //如果不在完成或中止状态，就抛出异常
+                throw new CustomerException(StatusEnum.PROJECT_MUST_BE_STOPPED);
+            }else{
+                //如果在中止状态，如果是第一个的话，那么就设置为进行中，其他的为等待。
+                users.add(task.getExecutor());
+                if (isFirst){
+                    task.setStatus(WorkStatus.DOING.getName());
+                    taskRepository.save(task);
+                    isFirst = false;
+                }else {
+                    task.setStatus(WorkStatus.WAIT.getName());
+                    taskRepository.save(task);
+                }
+            }
+            noticeService.saveRestartNotice(task.getExecutor(),
+                    projectID,projectEntity.getProjectName(),task.getTaskID());
+        }
+        System.out.println(users);
+        logService.saveLog(uid,projectID,"重启");
+        for (String user:users){
+            sessionService.sendMessage(user,"项目被重启");
+        }
+    }
+
     private ProjectEntity createNewProject(String uid,String projectName){
         ProjectEntity projectEntity = new ProjectEntity();
         projectEntity.setCreator(uid);

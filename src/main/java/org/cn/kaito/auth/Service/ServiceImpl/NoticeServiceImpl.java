@@ -42,6 +42,16 @@ public class NoticeServiceImpl implements NoticeService {
         noticeRespository.save(noticeEntity);
     }
 
+    @Override
+    public void saveRestartNotice(String executor, String projectID, String projectName, String taskID) {
+        NoticeEntity noticeEntity = createNotice(executor);
+        SimpleDateFormat sformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//日期格式
+        noticeEntity.setMessage("您所参与的项目编号为"+projectID+"，项目名称为"+projectName+"的任务被重新启动。       "
+                +sformat.format(new Date()));
+        System.out.println(noticeEntity);
+        noticeRespository.save(noticeEntity);
+    }
+
     private NoticeEntity createNotice(String user){
         NoticeEntity noticeEntity = new NoticeEntity();
         noticeEntity.setNoticeDate(new Date());

@@ -47,7 +47,7 @@ public class SecurityUserFilter extends OncePerRequestFilter {
             logger.info("the userName is "+userID.get());
             if (userID.isPresent() ){
                 // 如果有这个帐号的话，就赋予相应的权限
-                UserDetails userDetails = userDetailsService.loadUserByUsername(String.valueOf(userID.get()));
+                UserDetails userDetails = userDetailsService.loadUserByUsername(userID.get());
 
                 if (securityTokenUtil.validateToken(userID.get(),token)){
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
