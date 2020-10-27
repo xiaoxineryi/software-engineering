@@ -11,7 +11,7 @@ import java.util.List;
 public interface ProjectService {
     RandomTasksResponse getRandomTasks() throws CustomerException;
 
-    void createProject(String uid,CreateProjectRequest createProjectRequest);
+    void createProject(String uid,CreateProjectRequest createProjectRequest) throws CustomerException;
 
     List<SimpleProjectDTO> getSimpleProjects(String uid, int page) throws CustomerException;
 }

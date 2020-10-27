@@ -19,6 +19,7 @@ public class WorkExecuteServiceImpl implements WorkExecuteService {
     @Value("${basePath}")
     private String basePath;
 
+    public String getBasePath(){return basePath;}
 
     @Override
     public void save(String basePath, String projectName) {

@@ -1,7 +1,9 @@
 package org.cn.kaito.auth.Service.ServiceImpl;
 
+import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.SessionService;
 import org.cn.kaito.auth.Service.UserService;
+import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,7 @@ import java.util.HashMap;
 
 @Service
 public class SessionServiceImpl implements SessionService {
-    private HashMap<String, Session> workers = new HashMap<>();
+    private final HashMap<String, Session> workers = new HashMap<>();
 
     @Autowired
     UserService userService;
@@ -19,15 +21,29 @@ public class SessionServiceImpl implements SessionService {
         workers.put(userID,session);
     }
 
-    public void addByToken(String token,Session session){
+    public void addByToken(String token,Session session) throws CustomerException {
         String userID = userService.getUserIDByToken(token);
         addByID(userID,session);
         sendMessage(userID,"succeed");
     }
 
     @Override
-    public void sendMessage(String userID, String message) {
-        workers.get(userID).getAsyncRemote().sendText(message);
+    public void sendMessage(String userID, String message) throws CustomerException {
+        if (workers.containsKey(userID)){
+            workers.get(userID).getAsyncRemote().sendText(message);
+        }else{
+            throw new CustomerException(StatusEnum.CANT_FIND_USER);
+        }
+    }
+
+    @Override
+    public void close(String token) throws CustomerException {
+        String userID = userService.getUserIDByToken(token);
+        if (workers.containsKey(userID)){
+            workers.remove(userID);
+        }else{
+            throw new CustomerException(StatusEnum.CANT_FIND_USER);
+        }
     }
 
 

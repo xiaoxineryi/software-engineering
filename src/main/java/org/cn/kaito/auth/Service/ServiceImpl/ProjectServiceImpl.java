@@ -7,12 +7,15 @@ import org.cn.kaito.auth.DTO.SimpleProjectDTO;
 import org.cn.kaito.auth.DTO.SimpleTaskDTO;
 import org.cn.kaito.auth.DTO.UserDTO;
 import org.cn.kaito.auth.Dao.Entity.ProjectEntity;
+import org.cn.kaito.auth.Dao.Entity.SubTaskEntity;
 import org.cn.kaito.auth.Dao.Repository.ProjectRepository;
+import org.cn.kaito.auth.Dao.Repository.TaskRepository;
 import org.cn.kaito.auth.Dao.Repository.TypeRepository;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.ProjectService;
 import org.cn.kaito.auth.Service.UserService;
 import org.cn.kaito.auth.Utils.ProjectStatus;
+import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -30,6 +33,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    TaskRepository taskRepository;
 
     @Autowired
     ProjectRepository projectRepository;
@@ -62,13 +68,42 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void createProject(String uid,CreateProjectRequest createProjectRequest) {
+    public void createProject(String uid,CreateProjectRequest createProjectRequest) throws CustomerException {
         /**
          * TODO:
-         * 创建项目需要创建项目，然后将子任务变为等待状态，第一个任务变为进行中状态，通知对应的任务的用户进行操作，然后记录一次操作为保存项目，
+         * 创建项目需要创建项目，然后将子任务变为等待状态，第一个任务变为进行中状态，通知对应的任务的用户进行操作，然后记录一次操作为保存项目，同时新建项目目录与文件。
          */
         ProjectEntity projectEntity = createNewProject(uid,createProjectRequest.getName());
-        projectRepository.save(projectEntity);
+        ProjectEntity project = projectRepository.save(projectEntity);
+        SimpleTaskDTO task = saveTasks(project.getProjectID(),createProjectRequest.getTasks());
+
+    }
+
+    private SimpleTaskDTO saveTasks(String projetcID,List<SimpleTaskDTO> tasks) throws CustomerException {
+        /**
+         * 如果有子任务序列，那么就返回第一个任务。
+         */
+        if (tasks.size()==0){
+            throw new CustomerException(StatusEnum.CANT_SAVE_EMPTY_TASKS);
+        }
+        for (SimpleTaskDTO task : tasks){
+            int index = tasks.indexOf(task);
+
+            SubTaskEntity subTaskEntity = new SubTaskEntity();
+            subTaskEntity.setExecutor(task.getOwner().getId());
+            subTaskEntity.setProjectID(projetcID);
+            subTaskEntity.setIndex(index);
+            subTaskEntity.setTypeID(task.getTypeID());
+            subTaskEntity.setTaskID(projetcID+"_"+String.valueOf(index+1));
+            if (index == 0){
+                subTaskEntity.setStatus("进行中");
+            }else{
+                subTaskEntity.setStatus("等待中");
+            }
+            taskRepository.save(subTaskEntity);
+        }
+
+        return tasks.get(0);
 
     }
 

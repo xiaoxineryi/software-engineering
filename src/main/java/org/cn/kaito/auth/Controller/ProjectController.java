@@ -42,7 +42,7 @@ public class ProjectController extends BaseController{
 
     @PostMapping("/create")
     @PreAuthorize(value = "hasPermission('project','create')")
-    public void createProject(@RequestBody CreateProjectRequest createProjectRequest){
+    public void createProject(@RequestBody CreateProjectRequest createProjectRequest) throws CustomerException {
         projectService.createProject(getUid(),createProjectRequest);
     }
 

@@ -3,6 +3,7 @@ package org.cn.kaito.auth.WebSocket;
 
 import lombok.extern.slf4j.Slf4j;
 import org.cn.kaito.auth.Config.MyEndpointConfig;
+import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Security.SecurityTokenUtil;
 import org.cn.kaito.auth.Service.SessionService;
 import org.cn.kaito.auth.Utils.WsDecoder;
@@ -19,7 +20,7 @@ import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 
-@ServerEndpoint(value = "/room/{token}",configurator = MyEndpointConfig.class
+@ServerEndpoint(value = "/{token}",configurator = MyEndpointConfig.class
         ,encoders = {WsEncoder.class}, decoders = {WsDecoder.class})
 @Slf4j
 @Component
@@ -30,7 +31,7 @@ public class WsController {
 
     @OnOpen
     public void OnOpen(Session session,
-                       @PathParam("token") String token) throws IOException {
+                       @PathParam("token") String token) throws IOException, CustomerException {
         sessionService.addByToken(token,session);
     }
 
@@ -41,8 +42,8 @@ public class WsController {
     }
     @OnClose
     public void OnClose(Session session, @PathParam("roomID") int roomID,
-                        @PathParam("token") String token){
-
+                        @PathParam("token") String token) throws CustomerException {
+        sessionService.close(token);
     }
 
 }
