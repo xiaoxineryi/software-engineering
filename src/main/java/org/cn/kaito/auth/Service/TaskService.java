@@ -8,4 +8,6 @@ public interface TaskService {
     void execute(String uid, String taskID) throws CustomerException, IOException;
 
     void submit(String uid,String taskID) throws CustomerException, IOException;
+
+    void undo(String uid, String taskID) throws CustomerException, IOException;
 }

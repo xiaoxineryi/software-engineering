@@ -88,6 +88,8 @@ public class TaskServiceImpl implements TaskService {
             workExecuteService.commit(projectEntity.getProjectName());
             //更新任务状态
             subTaskEntity.setStatus(WorkStatus.DONE.getName());
+            logService.saveLog(uid,projectEntity.getProjectID(),"提交"+type+"类任务");
+
             taskRepository.save(subTaskEntity);
             //通知下一个人继续执行
             Optional<SubTaskEntity> nextTaskOp = taskRepository.findByProjectIDAndTaskPosition(
@@ -99,8 +101,32 @@ public class TaskServiceImpl implements TaskService {
                 UserDTO userDTO = userRepository.getUserDTOsByID(nextTask.getExecutor())
                         .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
                 sessionService.sendMessage(userDTO.getUserID(),"您的任务准备就绪啦");
-                noticeService.saveTaskNotice(uid,projectEntity.getProjectID(),projectEntity.getProjectName());
+                noticeService.saveTaskNotice(userDTO.getUserID(),projectEntity.getProjectID(),projectEntity.getProjectName());
             }
+        }
+    }
+
+    @Override
+    public void undo(String uid, String taskID) throws CustomerException, IOException {
+        SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(taskID)
+                .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+        UserEntity userEntity = userRepository.getUserEntityByUserID(uid)
+                .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
+        ProjectEntity projectEntity = projectRepository.findById(subTaskEntity.getProjectID())
+                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+        String type = typeRepository.getTypeByID(subTaskEntity.getTypeID());
+
+        if (userEntity.getRoleID()!=subTaskEntity.getTypeID()){
+            throw new CustomerException(StatusEnum.USER_CANT_WORK);
+        }else {
+            if (!subTaskEntity.getStatus().equals(WorkStatus.DOING.getName())){
+                throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+            }
+            workExecuteService.save(projectEntity.getProjectName(),userEntity.getUserName(),
+                    userEntity.getUserID(),type);
+            subTaskEntity.setStatus(WorkStatus.SAVE.getName());
+            taskRepository.save(subTaskEntity);
+            logService.saveLog(uid,projectEntity.getProjectID(),"执行并保存"+type+"类任务");
         }
     }
 }

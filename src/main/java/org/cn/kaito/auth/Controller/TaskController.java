@@ -24,4 +24,9 @@ public class TaskController extends BaseController {
     public void submit(@RequestParam(name = "taskID") String taskID) throws IOException, CustomerException {
         taskService.submit(getUid(),taskID);
     }
+
+    @PostMapping("/undo")
+    public void undo(@RequestParam(name = "taskID") String taskID) throws IOException, CustomerException {
+        taskService.undo(getUid(),taskID);
+    }
 }
