@@ -3,7 +3,7 @@ spring:
         driver-class-name: com.mysql.cj.jdbc.Driver
         username: AuthDB
         password: Auth123456
-        url: jdbc:mysql://localhost:3306/AuthControl?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=Hongkong
+        url: jdbc:mysql://localhost:3306/AuthControl?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=Hongkong&allowPublicKeyRetrieval=true
     jpa:
         properties:
             hibernate:
