@@ -10,6 +10,7 @@ public enum StatusEnum {
     WRONG_TOKEN_FOR_USER(401, "自动登录已过期，请重新登录"),
     ACCOUNT_HAS_BEEN_DELETED(401,"帐号已经被注销"),
     WRONG_ACCOUNT_OR_PASSWORD(402, "帐号或密码错误"),
+    WORK_CANT_BE_UNDO(403,"任务必须在保存状态才可以撤销"),
     WORK_CANT_BE_SUBMIT(403,"任务必须在保存状态才可以提交"),
     WORK_CANT_BE_DONE(401,"该任务不在进行中"),
     DONT_HAVE_PERMISSION_GETLOG(403,"没有权限获取项目日志信息"),

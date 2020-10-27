@@ -53,6 +53,7 @@ public class WorkExecuteServiceImpl implements WorkExecuteService {
         BufferedWriter bf = new BufferedWriter(new FileWriter(fileBack,true));
         bf.write(DateStringUtil.Date2String(new Date())+"     "+"编号为"+userID+"的用户"+userName
         +"执行了"+type+"类任务");
+        bf.newLine();
         bf.flush();
         bf.close();
 
@@ -74,13 +75,18 @@ public class WorkExecuteServiceImpl implements WorkExecuteService {
     }
 
     @Override
-    public void cancel(String basePath, String projectName) {
+    public void undo(String basePath, String projectName) throws IOException {
+        String path = basePath+projectName+"/"+projectName+".txt";
+        String backPath = basePath+projectName+"/"+projectName+".backup";
 
+        File file = getFile(path);
+        File fileBack = getFile(backPath);
+        FileUtil.copyFile(file,fileBack);
     }
 
     @Override
-    public void cancel(String projectName) {
-
+    public void undo(String projectName) throws IOException {
+        undo(basePath,projectName);
     }
     private File getFile(String fileName) throws IOException {
         File file = new File(fileName);

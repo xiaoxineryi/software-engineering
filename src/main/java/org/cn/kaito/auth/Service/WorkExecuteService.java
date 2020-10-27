@@ -12,7 +12,7 @@ public interface WorkExecuteService {
     void commit(String basePath,String projectName) throws IOException;
     void commit(String projectName) throws IOException;
 
-    void cancel(String basePath,String projectName);
-    void cancel(String projectName);
 
+    void undo(String basePath,String projectName) throws IOException;
+    void undo(String projectName) throws IOException;
 }

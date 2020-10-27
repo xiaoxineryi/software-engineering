@@ -119,14 +119,13 @@ public class TaskServiceImpl implements TaskService {
         if (userEntity.getRoleID()!=subTaskEntity.getTypeID()){
             throw new CustomerException(StatusEnum.USER_CANT_WORK);
         }else {
-            if (!subTaskEntity.getStatus().equals(WorkStatus.DOING.getName())){
-                throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+            if (!subTaskEntity.getStatus().equals(WorkStatus.SAVE.getName())){
+                throw new CustomerException(StatusEnum.WORK_CANT_BE_UNDO);
             }
-            workExecuteService.save(projectEntity.getProjectName(),userEntity.getUserName(),
-                    userEntity.getUserID(),type);
-            subTaskEntity.setStatus(WorkStatus.SAVE.getName());
+            workExecuteService.undo(projectEntity.getProjectName());
+            subTaskEntity.setStatus(WorkStatus.DOING.getName());
             taskRepository.save(subTaskEntity);
-            logService.saveLog(uid,projectEntity.getProjectID(),"执行并保存"+type+"类任务");
+            logService.saveLog(uid,projectEntity.getProjectID(),"撤销执行"+type+"类任务");
         }
     }
 }

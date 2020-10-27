@@ -23,7 +23,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-@PreAuthorize("hasPermission('project','read')")
+
 public class UserController extends BaseController{
 
     @Autowired
@@ -37,12 +37,14 @@ public class UserController extends BaseController{
         return userService.login(userLogin);
     }
 
+    @PreAuthorize("hasPermission('user','changePwd')")
     @PostMapping("/changePassword")
     public void changePassword(@RequestBody ChangePasswordRequest changePasswordRequest) throws CustomerException {
         String userID = getUid();
         userService.changePassword(userID,changePasswordRequest);
     }
 
+    @PreAuthorize("hasPermission('user','read')")
     @GetMapping("/list")
     public GetUserListResponse getUserList(@RequestParam(name = "type") String type) throws CustomerException {
         List<UserDTO> userDTOS =  userService.getUserList(type);
@@ -50,13 +52,14 @@ public class UserController extends BaseController{
         getUserListResponse.setUsers(userDTOS);
         return getUserListResponse;
     }
-
+    @PreAuthorize("hasPermission('user','read')")
     @GetMapping("/notice")
     public NoticeResponse getNotices(@RequestParam(name = "page") int page){
         NoticeResponse noticeResponse = userService.getNotices(getUid(),page);
         return noticeResponse;
     }
 
+    @PreAuthorize("hasPermission('user','read')")
     @GetMapping("/cntUnreadMsg")
     public NoticeCountResponse cntUnreadMsg(){
         return userService.getUnreadNotices(getUid());
