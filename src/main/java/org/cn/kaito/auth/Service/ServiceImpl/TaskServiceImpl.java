@@ -1,5 +1,6 @@
 package org.cn.kaito.auth.Service.ServiceImpl;
 
+import org.cn.kaito.auth.Controller.Request.DelegateRequest;
 import org.cn.kaito.auth.DTO.EntrustTaskDTO;
 import org.cn.kaito.auth.DTO.OwnerDTO;
 import org.cn.kaito.auth.DTO.SelfTaskDTO;
@@ -10,14 +11,18 @@ import org.cn.kaito.auth.Dao.Entity.SubTaskEntity;
 import org.cn.kaito.auth.Dao.Entity.UserEntity;
 import org.cn.kaito.auth.Dao.Repository.*;
 import org.cn.kaito.auth.Exception.CustomerException;
+import org.cn.kaito.auth.Schedule.CronSchedulerJob;
 import org.cn.kaito.auth.Service.*;
 import org.cn.kaito.auth.Utils.StatusEnum;
 import org.cn.kaito.auth.Utils.WorkStatus;
+import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +42,9 @@ public class TaskServiceImpl implements TaskService {
 
     @Autowired
     SessionService sessionService;
+
+    @Autowired
+    CronSchedulerJob cronSchedulerJobService;
 
     @Autowired
     EntrustRepository entrustRepository;
@@ -210,5 +218,55 @@ public class TaskServiceImpl implements TaskService {
            entrustTaskDTOS.add(entrustTaskDTO);
        }
        return entrustTaskDTOS;
+    }
+
+    @Override
+    @Transactional
+    public void delegate(String uid,DelegateRequest delegateRequest) throws CustomerException {
+        // 委托给某人，首先将自身状态变为委托中，然后添加日志，然后添加委托记录，添加定时任务
+        //定时任务：到期后收回权限。
+
+        SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(delegateRequest.getTaskID())
+                                .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
+        String type = typeRepository.getTypeByID(subTaskEntity.getTypeID());
+        subTaskEntity.setStatus(WorkStatus.DELEGATE.getName());
+        logService.saveLog(uid,subTaskEntity.getProjectID(),"将任务"+type+"委托给"+delegateRequest.getUserID());
+
+        EntrustEntity entrustEntity = saveDelegate(delegateRequest);
+        cronSchedulerJobService.addCronWork(entrustEntity);
+        sessionService.sendMessage(delegateRequest.getUserID(),"您被委托任务");
+    }
+
+    @Override
+    public void delegateDelete(String taskID) throws CustomerException, SchedulerException {
+        SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(taskID)
+                .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
+        // 取消委托包含 取消定时任务 发送通知 更新原本任务的状态
+        EntrustEntity entrustEntity = entrustRepository.findEntrustEntityBySubTask(taskID)
+                .orElseThrow(()->new CustomerException(StatusEnum.DELEGATE_NOT_FOUND));
+        if (entrustEntity.getStatus().equals(WorkStatus.DONE.getName())){
+            throw new CustomerException(StatusEnum.DELEGATE_WORK_HAS_BEEN_DONE);
+        }
+        entrustEntity.setStatus(WorkStatus.TAKE.getName());
+
+        cronSchedulerJobService.removeCronWork(entrustEntity.getEntrustID());
+
+        subTaskEntity.setStatus(WorkStatus.DOING.getName());
+        taskRepository.save(subTaskEntity);
+        ProjectEntity projectEntity = projectRepository.findById(subTaskEntity.getProjectID())
+                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+        noticeService.saveDelegateTakenNotice(entrustEntity.getEntrustWorker(),
+                subTaskEntity.getProjectID(),projectEntity.getProjectName(),taskID);
+        sessionService.sendMessage(entrustEntity.getEntrustWorker(),"您的任务被收回");
+    }
+
+    private EntrustEntity saveDelegate(DelegateRequest delegateRequest) {
+        EntrustEntity entrustEntity = new EntrustEntity();
+        entrustEntity.setStatus(WorkStatus.DOING.getName());
+        entrustEntity.setEntrustEndDate(delegateRequest.getDeadline());
+        entrustEntity.setEntrustStartDate(new Date());
+        entrustEntity.setEntrustWorker(delegateRequest.getUserID());
+        entrustEntity.setSubTask(delegateRequest.getTaskID());
+        return entrustRepository.save(entrustEntity);
     }
 }

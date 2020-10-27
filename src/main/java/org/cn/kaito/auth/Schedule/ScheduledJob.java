@@ -21,6 +21,5 @@ public class ScheduledJob implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         entrustService.takeBackEntrust(entrustID);
-        System.out.println(entrustID);
     }
 }

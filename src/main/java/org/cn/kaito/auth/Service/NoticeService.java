@@ -8,4 +8,8 @@ public interface NoticeService {
     void saveStopEntrustNotice(String user, String projectID, String projectName,String taskID);
 
     void saveRestartNotice(String executor, String projectID, String projectName, String taskID);
+
+    void saveDelegateNotice(String executor,String projectID,String projectName,String taskID);
+
+    void saveDelegateTakenNotice(String executor,String proejctID,String projectName,String taskID);
 }

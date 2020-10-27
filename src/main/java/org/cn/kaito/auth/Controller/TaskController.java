@@ -1,5 +1,6 @@
 package org.cn.kaito.auth.Controller;
 
+import org.cn.kaito.auth.Controller.Request.DelegateRequest;
 import org.cn.kaito.auth.Controller.Response.TaskListResponse;
 import org.cn.kaito.auth.DTO.EntrustTaskDTO;
 import org.cn.kaito.auth.DTO.SelfTaskDTO;
@@ -42,5 +43,15 @@ public class TaskController extends BaseController {
         taskListResponse.setEntrustTasks(entrustTaskDTOS);
         taskListResponse.setSelfTasks(selfTaskDTOS);
         return taskListResponse;
+    }
+
+    @PostMapping("/delegate")
+    public void delegate(@RequestBody DelegateRequest delegateRequest) throws CustomerException {
+        taskService.delegate(getUid(),delegateRequest);
+    }
+
+    @GetMapping("/delegateDelete")
+    public void delegateDelete(@RequestParam(name = "taskID") String taskID ) throws CustomerException {
+        taskService.delegateDelete(taskID);
     }
 }

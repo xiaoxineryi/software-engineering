@@ -13,5 +13,6 @@ import java.util.Optional;
 public interface EntrustRepository extends JpaRepository<EntrustEntity,Integer> {
     Optional<EntrustEntity> findEntrustEntityBySubTask(String taskID);
 
+    Optional<EntrustEntity> findEntrustEntityByEntrustID(int id);
     List<EntrustEntity> findAllByEntrustWorker(String uid);
 }

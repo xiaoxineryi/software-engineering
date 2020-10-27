@@ -52,6 +52,26 @@ public class NoticeServiceImpl implements NoticeService {
         noticeRespository.save(noticeEntity);
     }
 
+    @Override
+    public void saveDelegateNotice(String executor, String projectID, String projectName, String taskID) {
+        NoticeEntity noticeEntity = createNotice(executor);
+        SimpleDateFormat sformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//日期格式
+        noticeEntity.setMessage("您被委托执行项目编号为"+projectID+"，项目名称为"+projectName+"的项目中的任务"+taskID+"       "
+                +sformat.format(new Date()));
+        System.out.println(noticeEntity);
+        noticeRespository.save(noticeEntity);
+    }
+
+    @Override
+    public void saveDelegateTakenNotice(String executor, String projectID, String projectName, String taskID) {
+        NoticeEntity noticeEntity = createNotice(executor);
+        SimpleDateFormat sformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//日期格式
+        noticeEntity.setMessage("您被委托的项目编号为"+projectID+"，项目名称为"+projectName+"的项目中的任务"+taskID+"被收回       "
+                +sformat.format(new Date()));
+        System.out.println(noticeEntity);
+        noticeRespository.save(noticeEntity);
+    }
+
     private NoticeEntity createNotice(String user){
         NoticeEntity noticeEntity = new NoticeEntity();
         noticeEntity.setNoticeDate(new Date());

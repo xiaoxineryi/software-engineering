@@ -12,6 +12,7 @@ public enum StatusEnum {
     WRONG_ACCOUNT_OR_PASSWORD(402, "帐号或密码错误"),
     WORK_CANT_BE_UNDO(403,"任务必须在保存状态才可以撤销"),
     WORK_CANT_BE_SUBMIT(403,"任务必须在保存状态才可以提交"),
+    DELEGATE_WORK_HAS_BEEN_DONE(401,"委托任务已经完成"),
     WORK_CANT_BE_DONE(401,"该任务不在进行中"),
     DELEGATE_NOT_FOUND(401,"委托没有找到"),
     DONT_HAVE_PERMISSION_GETLOG(403,"没有权限获取项目日志信息"),

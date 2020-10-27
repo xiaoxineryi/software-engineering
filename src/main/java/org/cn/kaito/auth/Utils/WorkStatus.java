@@ -6,7 +6,9 @@ public enum WorkStatus {
     DONE("已完成"),
     SAVE("保存"),
     WAIT("等待"),
-    STOP("中止")
+    STOP("中止"),
+    FAILED("委托期间内未完成"),
+    TAKE("未完成任务被主动收回")
     ;
     WorkStatus(String name){
         this.name = name;

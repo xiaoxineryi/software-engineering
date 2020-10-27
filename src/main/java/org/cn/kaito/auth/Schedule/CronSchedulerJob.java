@@ -36,8 +36,14 @@ public class CronSchedulerJob {
             }
         }
     }
-
-    private void addCronWork(EntrustEntity entrustEntity) {
+    public void removeCronWork(int entrustID) throws SchedulerException {
+        Scheduler sched = schedulerFactoryBean.getScheduler();
+        TriggerKey triggerKey = TriggerKey.triggerKey(String.valueOf(entrustID));
+        sched.pauseTrigger(triggerKey);// 停止触发器
+        sched.unscheduleJob(triggerKey);// 移除触发器
+        sched.deleteJob(JobKey.jobKey(String.valueOf(entrustID)));
+    }
+    public void addCronWork(EntrustEntity entrustEntity) {
         Scheduler scheduler = schedulerFactoryBean.getScheduler();
         JobDetail jobDetail = JobBuilder.newJob(ScheduledJob.class) .withIdentity(String.valueOf(entrustEntity.getEntrustID())).build();
         System.out.println("检测到任务"+entrustEntity.getEntrustID());

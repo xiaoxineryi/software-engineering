@@ -30,7 +30,7 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public void sendMessage(String userID, String message) throws CustomerException {
+    public void sendMessage(String userID, String message)  {
         if (workers.containsKey(userID)){
             workers.get(userID).getAsyncRemote().sendObject(message);
         }
