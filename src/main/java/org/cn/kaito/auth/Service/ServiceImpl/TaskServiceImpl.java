@@ -61,7 +61,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void execute(String uid, String taskID) throws CustomerException, IOException {
-        //执行的话 就只需要写入就好了 别的都不需要
+        //需要判断 是自己执行的 还是被委托人执行的
         SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(taskID)
                                     .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
         UserEntity userEntity = userRepository.getUserEntityByUserID(uid)
@@ -69,20 +69,39 @@ public class TaskServiceImpl implements TaskService {
         ProjectEntity projectEntity = projectRepository.findById(subTaskEntity.getProjectID())
                                 .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
         String type = typeRepository.getTypeByID(subTaskEntity.getTypeID());
+
         if (userEntity.getRoleID()!=subTaskEntity.getTypeID()){
             throw new CustomerException(StatusEnum.USER_CANT_WORK);
-        }else {
+        }
+        // 如果是委托中的任务的话，
+        if (subTaskEntity.getStatus().equals(WorkStatus.DELEGATE.getName())){
+            EntrustEntity entrustEntity = entrustRepository.findEntrustEntityBySubTask(taskID)
+                                        .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
+            if (!entrustEntity.getStatus().equals(WorkStatus.DOING.getName())){
+                    throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+                }
+            // 工作
+            workExecuteService.save(projectEntity.getProjectName(),userEntity.getUserName(),
+                        uid,type);
+                //切换委托任务的状态并保存
+            entrustEntity.setStatus(WorkStatus.SAVE.getName());
+            entrustRepository.save(entrustEntity);
+
+            logService.saveLog(uid,projectEntity.getProjectID(),"受到委托，执行并保存"+type+"类任务");
+
+        }else{
+            // 如果不是委托状态的话
             if (!subTaskEntity.getStatus().equals(WorkStatus.DOING.getName())){
                 throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
             }
             workExecuteService.save(projectEntity.getProjectName(),userEntity.getUserName(),
-                                    userEntity.getUserID(),type);
+                    userEntity.getUserID(),type);
             subTaskEntity.setStatus(WorkStatus.SAVE.getName());
             taskRepository.save(subTaskEntity);
             logService.saveLog(uid,projectEntity.getProjectID(),"执行并保存"+type+"类任务");
-            }
+        }
     }
-
+    @Transactional
     @Override
     public void submit(String uid, String taskID) throws CustomerException, IOException{
         SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(taskID)
@@ -94,33 +113,50 @@ public class TaskServiceImpl implements TaskService {
         String type = typeRepository.getTypeByID(subTaskEntity.getTypeID());
         if (userEntity.getRoleID()!=subTaskEntity.getTypeID()){
             throw new CustomerException(StatusEnum.USER_CANT_WORK);
-        }else {
+        }
+
+        //提交任务
+        workExecuteService.commit(projectEntity.getProjectName());
+
+        //更新任务状态
+        if (subTaskEntity.getStatus().equals(WorkStatus.DELEGATE.getName())){
+            //如果是被委托的话 就两个都变成成功，并且提醒委托人 任务执行完毕
+            EntrustEntity entrustEntity = entrustRepository.findEntrustEntityBySubTask(taskID)
+                    .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
+            if (!entrustEntity.getStatus().equals(WorkStatus.SAVE.getName())){
+                throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+            }
+            entrustEntity.setStatus(WorkStatus.DONE.getName());
+            entrustRepository.save(entrustEntity);
+            //记录操作 给委托人发消息
+            logService.saveLog(uid,projectEntity.getProjectID(),"被委托，提交"+type+"类任务");
+            sessionService.sendMessage(subTaskEntity.getExecutor(),"您委托的任务已完成");
+            noticeService.saveDelegateWorkDone(subTaskEntity.getExecutor(), projectEntity.getProjectID(),
+                        projectEntity.getProjectName(),entrustEntity.getEntrustWorker());
+        }else{
+            //如果是自己做的话 保存操作
             if (!subTaskEntity.getStatus().equals(WorkStatus.SAVE.getName())){
                 throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
             }
-
-            //提交任务
-            workExecuteService.commit(projectEntity.getProjectName());
-            //更新任务状态
-            subTaskEntity.setStatus(WorkStatus.DONE.getName());
             logService.saveLog(uid,projectEntity.getProjectID(),"提交"+type+"类任务");
+        }
+        subTaskEntity.setStatus(WorkStatus.DONE.getName());
+        taskRepository.save(subTaskEntity);
 
-            taskRepository.save(subTaskEntity);
             //通知下一个人继续执行
-            Optional<SubTaskEntity> nextTaskOp = taskRepository.findByProjectIDAndTaskPosition(
+        Optional<SubTaskEntity> nextTaskOp = taskRepository.findByProjectIDAndTaskPosition(
                     projectEntity.getProjectID(),subTaskEntity.getTaskPosition()+1);
-            if (nextTaskOp.isPresent()){
-                SubTaskEntity nextTask = nextTaskOp.get();
-                nextTask.setStatus(WorkStatus.DOING.getName());
-                taskRepository.save(nextTask);
-                UserDTO userDTO = userRepository.getUserDTOsByID(nextTask.getExecutor())
+        if (nextTaskOp.isPresent()){
+            SubTaskEntity nextTask = nextTaskOp.get();
+            nextTask.setStatus(WorkStatus.DOING.getName());
+            taskRepository.save(nextTask);
+            UserDTO userDTO = userRepository.getUserDTOsByID(nextTask.getExecutor())
                         .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
-                sessionService.sendMessage(userDTO.getUserID(),"您的任务准备就绪啦");
-                noticeService.saveTaskNotice(userDTO.getUserID(),projectEntity.getProjectID(),projectEntity.getProjectName());
-            }else{
-                projectEntity.setStatus(ProjectStatus.DONE.getName());
-                projectRepository.save(projectEntity);
-            }
+            sessionService.sendMessage(userDTO.getUserID(),"您的任务准备就绪啦");
+            noticeService.saveTaskNotice(userDTO.getUserID(),projectEntity.getProjectID(),projectEntity.getProjectName());
+        }else{
+            projectEntity.setStatus(ProjectStatus.DONE.getName());
+            projectRepository.save(projectEntity);
         }
     }
 
@@ -136,7 +172,25 @@ public class TaskServiceImpl implements TaskService {
 
         if (userEntity.getRoleID()!=subTaskEntity.getTypeID()){
             throw new CustomerException(StatusEnum.USER_CANT_WORK);
-        }else {
+        }
+
+        if (subTaskEntity.getStatus().equals(WorkStatus.DELEGATE.getName())){
+            //如果是委托中的状态的话
+            EntrustEntity entrustEntity = entrustRepository.findEntrustEntityBySubTask(taskID)
+                    .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
+            if (!entrustEntity.getStatus().equals(WorkStatus.DOING.getName())){
+                throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+            }
+            // 工作
+            workExecuteService.undo(projectEntity.getProjectName(),userEntity.getUserName());
+            //切换委托任务的状态并保存
+            entrustEntity.setStatus(WorkStatus.DOING.getName());
+            entrustRepository.save(entrustEntity);
+
+            logService.saveLog(uid,projectEntity.getProjectID(),"受到委托，撤销执行"+type+"类任务");
+
+        }else{
+            //如果是自己在执行
             if (!subTaskEntity.getStatus().equals(WorkStatus.SAVE.getName())){
                 throw new CustomerException(StatusEnum.WORK_CANT_BE_UNDO);
             }
@@ -145,6 +199,7 @@ public class TaskServiceImpl implements TaskService {
             taskRepository.save(subTaskEntity);
             logService.saveLog(uid,projectEntity.getProjectID(),"撤销执行"+type+"类任务");
         }
+
     }
 
     @Override

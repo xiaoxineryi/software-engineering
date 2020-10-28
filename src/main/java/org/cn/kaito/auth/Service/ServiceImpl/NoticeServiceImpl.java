@@ -32,6 +32,15 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
+    public void saveDelegateWorkDone(String uid, String projectID, String projectName, String delegateWorker) {
+        NoticeEntity noticeEntity =  createNotice(uid);
+        SimpleDateFormat sformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//日期格式
+        noticeEntity.setMessage("您委托给"+delegateWorker+"的项目编号为"+projectID+"，项目名为"+projectName+"的任务已经完成。      "
+                +sformat.format(new Date()));
+        noticeRespository.save(noticeEntity);
+    }
+
+    @Override
     public void saveStopNotice(String user, String projectID, String projectName,String taskID) {
         NoticeEntity noticeEntity = createNotice(user);
         SimpleDateFormat sformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//日期格式

@@ -14,4 +14,6 @@ public interface NoticeService {
     void saveDelegateTakenNotice(String executor,String proejctID,String projectName,String taskID);
 
     void saveChangedNotice(String uid,String projectID,String projectName);
+
+    void saveDelegateWorkDone(String uid,String projectID,String projectName,String delegateWorker);
 }

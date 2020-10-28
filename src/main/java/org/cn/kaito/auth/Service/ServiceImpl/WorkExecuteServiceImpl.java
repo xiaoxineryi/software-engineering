@@ -38,12 +38,7 @@ public class WorkExecuteServiceImpl implements WorkExecuteService {
     }
 
     @Override
-    public void save(String basePath, String projectName,String userName,String userID,String type) {
-
-    }
-
-    @Override
-    public void save(String projectName,String userName,String userID,String type) throws IOException {
+    public void save(String basePath, String projectName,String userName,String userID,String type) throws IOException {
         String path = basePath+projectName+"/"+projectName+".txt";
         String backPath = basePath+projectName+"/"+projectName+".backup";
 
@@ -52,11 +47,15 @@ public class WorkExecuteServiceImpl implements WorkExecuteService {
         FileUtil.copyFile(file,fileBack);
         BufferedWriter bf = new BufferedWriter(new FileWriter(fileBack,true));
         bf.write(DateStringUtil.Date2String(new Date())+"     "+"编号为"+userID+"的用户"+userName
-        +"执行了"+type+"类任务");
+                +"执行了"+type+"类任务");
         bf.newLine();
         bf.flush();
         bf.close();
+    }
 
+    @Override
+    public void save(String projectName,String userName,String userID,String type) throws IOException {
+        save(basePath,projectName,userName,userID,type);
     }
 
     @Override
