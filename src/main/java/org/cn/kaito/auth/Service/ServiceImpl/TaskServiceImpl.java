@@ -154,6 +154,8 @@ public class TaskServiceImpl implements TaskService {
                                     .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
             selfTaskDTO.setProjectID(projectEntity.getProjectID());
             selfTaskDTO.setProjectName(projectEntity.getProjectName());
+            selfTaskDTO.setTypeID(task.getTypeID());
+            selfTaskDTO.setType(typeRepository.getTypeByID(task.getTypeID()));
             String status = task.getStatus();
             //如果是代理状态，就返回代理人
             if (status.equals(WorkStatus.DELEGATE.getName())){
@@ -214,7 +216,8 @@ public class TaskServiceImpl implements TaskService {
            ownerDTO.setId(userDTO.getUserID());
            ownerDTO.setName(userDTO.getUsername());
            entrustTaskDTO.setConsiger(ownerDTO);
-
+           entrustTaskDTO.setTypeID(subTaskEntity.getTypeID());
+           entrustTaskDTO.setType(typeRepository.getTypeByID(subTaskEntity.getTypeID()));
            entrustTaskDTOS.add(entrustTaskDTO);
        }
        return entrustTaskDTOS;
@@ -229,9 +232,16 @@ public class TaskServiceImpl implements TaskService {
         SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(delegateRequest.getTaskID())
                                 .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
         String type = typeRepository.getTypeByID(subTaskEntity.getTypeID());
+        Optional<EntrustEntity> entrustEntityt = entrustRepository.findEntrustEntityBySubTask(subTaskEntity.getTaskID());
+        if (entrustEntityt.isPresent()){
+            throw new CustomerException(StatusEnum.SAME_WORK_CANT_BE_DELEGATE_TWICE);
+        }
         subTaskEntity.setStatus(WorkStatus.DELEGATE.getName());
+        ProjectEntity projectEntity = projectRepository.findById(subTaskEntity.getProjectID())
+                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
         logService.saveLog(uid,subTaskEntity.getProjectID(),"将任务"+type+"委托给"+delegateRequest.getUserID());
-
+        noticeService.saveDelegateNotice(delegateRequest.getUserID(), subTaskEntity.getProjectID(),
+                            projectEntity.getProjectName(), subTaskEntity.getTaskID());
         EntrustEntity entrustEntity = saveDelegate(delegateRequest);
         cronSchedulerJobService.addCronWork(entrustEntity);
         sessionService.sendMessage(delegateRequest.getUserID(),"您被委托任务");
@@ -253,10 +263,12 @@ public class TaskServiceImpl implements TaskService {
 
         subTaskEntity.setStatus(WorkStatus.DOING.getName());
         taskRepository.save(subTaskEntity);
+        String type = typeRepository.getTypeByID(subTaskEntity.getTypeID());
         ProjectEntity projectEntity = projectRepository.findById(subTaskEntity.getProjectID())
                 .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
         noticeService.saveDelegateTakenNotice(entrustEntity.getEntrustWorker(),
                 subTaskEntity.getProjectID(),projectEntity.getProjectName(),taskID);
+        logService.saveLog(subTaskEntity.getExecutor(), projectEntity.getProjectID(),"将子任务"+type+"委托收回");
         sessionService.sendMessage(entrustEntity.getEntrustWorker(),"您的任务被收回");
     }
 

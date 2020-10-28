@@ -15,6 +15,7 @@ public enum StatusEnum {
     DELEGATE_WORK_HAS_BEEN_DONE(401,"委托任务已经完成"),
     WORK_CANT_BE_DONE(401,"该任务不在进行中"),
     DELEGATE_NOT_FOUND(401,"委托没有找到"),
+    SAME_WORK_CANT_BE_DELEGATE_TWICE(401,"同一任务不可被委派多次"),
     DONT_HAVE_PERMISSION_GETLOG(403,"没有权限获取项目日志信息"),
     CANT_SAVE_EMPTY_TASKS(401,"无法保存空的任务序列"),
     DONT_HAVE_PROJECT(404,"没有找到项目"),

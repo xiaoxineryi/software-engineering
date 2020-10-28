@@ -6,6 +6,7 @@ import org.cn.kaito.auth.DTO.EntrustTaskDTO;
 import org.cn.kaito.auth.DTO.SelfTaskDTO;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.TaskService;
+import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -51,7 +52,7 @@ public class TaskController extends BaseController {
     }
 
     @GetMapping("/delegateDelete")
-    public void delegateDelete(@RequestParam(name = "taskID") String taskID ) throws CustomerException {
+    public void delegateDelete(@RequestParam(name = "taskID") String taskID ) throws CustomerException, SchedulerException {
         taskService.delegateDelete(taskID);
     }
 }

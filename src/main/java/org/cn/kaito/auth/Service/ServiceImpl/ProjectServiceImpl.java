@@ -5,9 +5,9 @@ import org.cn.kaito.auth.Controller.Request.EditProjectRequest;
 import org.cn.kaito.auth.Controller.Response.RandomTasksResponse;
 import org.cn.kaito.auth.DTO.*;
 import org.cn.kaito.auth.Dao.Entity.EntrustEntity;
-import org.cn.kaito.auth.Dao.Entity.NoticeEntity;
 import org.cn.kaito.auth.Dao.Entity.ProjectEntity;
 import org.cn.kaito.auth.Dao.Entity.SubTaskEntity;
+import org.cn.kaito.auth.Dao.Entity.UserEntity;
 import org.cn.kaito.auth.Dao.Repository.*;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.*;
@@ -17,13 +17,12 @@ import org.cn.kaito.auth.Utils.WorkStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.xml.crypto.Data;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.security.acl.Owner;
 import java.util.*;
 
 @Service
@@ -263,6 +262,46 @@ public class ProjectServiceImpl implements ProjectService {
         for (String user:users){
             sessionService.sendMessage(user,"项目被重启");
         }
+    }
+
+    @Override
+    public ProjectDetailDTO getDeatil(String uid, String pid) throws CustomerException {
+        ProjectEntity projectEntity = projectRepository.findById(pid)
+                                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+        ProjectDetailDTO projectDetailDTO = new ProjectDetailDTO();
+        projectDetailDTO.setId(pid);
+        projectDetailDTO.setName(projectEntity.getProjectName());
+        projectDetailDTO.setCreateTime(projectEntity.getCreateDate());
+        projectDetailDTO.setFinishTime(projectDetailDTO.getFinishTime());
+
+        List<SubTaskEntity> tasks = taskRepository.findAllByProjectIDOrderByTaskPosition(pid);
+        for (SubTaskEntity task : tasks){
+            UserDTO userDTO = userService.getUserByID(task.getExecutor());
+            WorkDetailDTO workDetailDTO = new WorkDetailDTO();
+            workDetailDTO.setTaskID(task.getTaskID());
+            workDetailDTO.setTypeID(task.getTypeID());
+            workDetailDTO.setType(typeRepository.getTypeByID(task.getTypeID()));
+            workDetailDTO.setWorkStatus(task.getStatus());
+            OwnerDTO owner = new OwnerDTO();
+            owner.setId(task.getExecutor());
+            owner.setName(userDTO.getUsername());
+            workDetailDTO.setOwner(owner);
+            if (task.getStatus().equals(WorkStatus.DONE.getName())){
+                Optional<EntrustEntity> entrustEntity = entrustRepository.findEntrustEntityBySubTask(task.getTaskID());
+                if (entrustEntity.isEmpty()){
+                    workDetailDTO.setExecutor(owner);
+                }else if (entrustEntity.get().getStatus().equals(WorkStatus.DONE.getName())){
+                    EntrustEntity en = entrustEntity.get();
+                    OwnerDTO executor = new OwnerDTO();
+                    executor.setId(en.getEntrustWorker());
+                    executor.setName(userService.getUserByID(en.getEntrustWorker()).getUsername());
+                    workDetailDTO.setExecutor(executor);
+                }
+            }
+            projectDetailDTO.getSubtasks().add(workDetailDTO);
+        }
+
+        return projectDetailDTO;
     }
 
     private ProjectEntity createNewProject(String uid,String projectName){

@@ -1,5 +1,6 @@
 package org.cn.kaito.auth.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.cn.kaito.auth.Dao.Entity.NoticeEntity;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 public class NoticeDTO {
     private int id;
     private String msg;
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
 
     public NoticeDTO(int id, String msg, Date time) {

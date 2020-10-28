@@ -6,6 +6,7 @@ import org.cn.kaito.auth.Dao.Entity.SubTaskEntity;
 import org.cn.kaito.auth.Dao.Repository.EntrustRepository;
 import org.cn.kaito.auth.Dao.Repository.ProjectRepository;
 import org.cn.kaito.auth.Dao.Repository.TaskRepository;
+import org.cn.kaito.auth.Dao.Repository.TypeRepository;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.*;
 import org.cn.kaito.auth.Utils.StatusEnum;
@@ -33,6 +34,8 @@ public class EntrustServiceImpl implements EntrustService {
     TaskRepository taskRepository;
 
     @Autowired
+    TypeRepository typeRepository;
+    @Autowired
     ProjectRepository projectRepository;
     @Override
     public void takeBackEntrust(int entrustID) {
@@ -45,8 +48,9 @@ public class EntrustServiceImpl implements EntrustService {
                 //如果没有完成，就设置为未完成
                 entrust.setStatus(WorkStatus.FAILED.getName());
                 entrustRepository.save(entrust);
+                String type = typeRepository.getTypeByID(subTaskEntity.getTypeID());
                 sessionService.sendMessage(entrust.getEntrustWorker(),"未在规定时间内完成，任务被收回");
-                logService.saveLog(entrust.getEntrustWorker(),subTaskEntity.getProjectID(),"委托被回收");
+                logService.saveLog(entrust.getEntrustWorker(),subTaskEntity.getProjectID(),"子任务"+type+"因超时委托被回收");
                 noticeService.saveDelegateTakenNotice(entrust.getEntrustWorker(), subTaskEntity.getProjectID(),projectEntity.getProjectName(),entrust.getSubTask());
                 subTaskEntity.setStatus(WorkStatus.DOING.getName());
                 taskRepository.save(subTaskEntity);

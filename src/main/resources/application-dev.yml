@@ -11,6 +11,8 @@ spring:
                     auto:create
 
 
+    resources:
+        static-locations=/resources/project
 server:
     port: 8080
     servlet:

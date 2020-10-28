@@ -3,9 +3,11 @@ package org.cn.kaito.auth.Controller;
 import org.cn.kaito.auth.Controller.Request.CreateProjectRequest;
 import org.cn.kaito.auth.Controller.Request.EditProjectRequest;
 import org.cn.kaito.auth.Controller.Response.LogResponse;
+import org.cn.kaito.auth.Controller.Response.ProjectDetailResponse;
 import org.cn.kaito.auth.Controller.Response.RandomTasksResponse;
 import org.cn.kaito.auth.Controller.Response.SimpleProjectResponse;
 import org.cn.kaito.auth.DTO.LogDTO;
+import org.cn.kaito.auth.DTO.ProjectDetailDTO;
 import org.cn.kaito.auth.DTO.SimpleProjectDTO;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.LogService;
@@ -82,6 +84,15 @@ public class ProjectController extends BaseController{
     public void restartProject(@RequestParam(name = "projectID") String projectID) throws CustomerException {
         projectService.restart(getUid(),projectID);
     }
+
+    @GetMapping("/{pid}")
+    public ProjectDetailResponse projectDetail(@PathVariable(name = "pid") String pid) throws CustomerException {
+        ProjectDetailDTO projectDetailDTO = projectService.getDeatil(getUid(),pid);
+        ProjectDetailResponse p = new ProjectDetailResponse();
+        p.setProject(projectDetailDTO);
+        return p ;
+    }
+
 //    @GetMapping("/read")
 //    public void readProject() throws IOException {
 //        System.out.println("nice");

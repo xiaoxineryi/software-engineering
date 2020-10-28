@@ -4,6 +4,7 @@ package org.cn.kaito.auth.Service;
 import org.cn.kaito.auth.Controller.Request.CreateProjectRequest;
 import org.cn.kaito.auth.Controller.Request.EditProjectRequest;
 import org.cn.kaito.auth.Controller.Response.RandomTasksResponse;
+import org.cn.kaito.auth.DTO.ProjectDetailDTO;
 import org.cn.kaito.auth.DTO.SimpleProjectDTO;
 import org.cn.kaito.auth.Exception.CustomerException;
 
@@ -22,4 +23,6 @@ public interface ProjectService {
     void stopProject(String uid,String projectID) throws CustomerException;
 
     void restart(String uid, String projectID) throws CustomerException;
+
+    ProjectDetailDTO getDeatil(String uid, String pid) throws CustomerException;
 }
