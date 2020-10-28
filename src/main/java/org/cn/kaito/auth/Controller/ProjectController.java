@@ -90,7 +90,7 @@ public class ProjectController extends BaseController{
         ProjectDetailDTO projectDetailDTO = projectService.getDeatil(getUid(),pid);
         ProjectDetailResponse p = new ProjectDetailResponse();
         p.setProject(projectDetailDTO);
-        return p ;
+        return p;
     }
 
 //    @GetMapping("/read")

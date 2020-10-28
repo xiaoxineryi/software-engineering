@@ -29,7 +29,7 @@ public class AdminController extends BaseController {
 
     @PostMapping("/addUser")
     @PreAuthorize(value = "hasPermission('user','add')")
-    public RegisterResponse addUser(@RequestBody RegisterRequest registerRequest){
+    public RegisterResponse addUser(@RequestBody RegisterRequest registerRequest) throws CustomerException {
         return adminUserService.addUser(registerRequest);
     }
 

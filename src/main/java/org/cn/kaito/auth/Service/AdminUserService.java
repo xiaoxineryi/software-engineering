@@ -7,7 +7,7 @@ import org.cn.kaito.auth.Controller.Response.RegisterResponse;
 import org.cn.kaito.auth.Exception.CustomerException;
 
 public interface AdminUserService {
-    RegisterResponse addUser(RegisterRequest registerRequest);
+    RegisterResponse addUser(RegisterRequest registerRequest) throws CustomerException;
 
     void editUser(EditUserRequest editUserRequest) throws CustomerException;
 
