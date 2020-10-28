@@ -23,6 +23,15 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
+    public void saveChangedNotice(String uid,String projectID,String projectName){
+        NoticeEntity noticeEntity =  createNotice(uid);
+        SimpleDateFormat sformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//日期格式
+        noticeEntity.setMessage("项目编号为"+projectID+"，项目名为"+projectName+"的任务被重新编辑，请注意查看。"+"      "
+                +sformat.format(new Date()));
+        noticeRespository.save(noticeEntity);
+    }
+
+    @Override
     public void saveStopNotice(String user, String projectID, String projectName,String taskID) {
         NoticeEntity noticeEntity = createNotice(user);
         SimpleDateFormat sformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//日期格式

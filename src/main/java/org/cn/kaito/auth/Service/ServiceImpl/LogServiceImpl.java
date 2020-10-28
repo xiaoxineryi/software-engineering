@@ -11,6 +11,7 @@ import org.cn.kaito.auth.Dao.Repository.TaskRepository;
 import org.cn.kaito.auth.Dao.Repository.UserRepository;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.LogService;
+import org.cn.kaito.auth.Utils.AuthEnum;
 import org.cn.kaito.auth.Utils.DateStringUtil;
 import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,7 @@ public class LogServiceImpl implements LogService {
     private boolean ValidateUserAuth(String uid,String projectID) throws CustomerException {
         UserDTO userDTO  = userRepository.getUserDTOsByID(uid)
                 .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
-        if (userDTO.getType().equals("ROLE_ADMIN")){
+        if (userDTO.getTypeID()== AuthEnum.ADMIN.getID()){
             return true;
         }else {
             Optional<SubTaskEntity> subTaskEntity = taskRepository.findAllByExecutorAndAndProjectID(uid,projectID);

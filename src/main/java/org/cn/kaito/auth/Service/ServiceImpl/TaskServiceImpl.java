@@ -13,6 +13,7 @@ import org.cn.kaito.auth.Dao.Repository.*;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Schedule.CronSchedulerJob;
 import org.cn.kaito.auth.Service.*;
+import org.cn.kaito.auth.Utils.ProjectStatus;
 import org.cn.kaito.auth.Utils.StatusEnum;
 import org.cn.kaito.auth.Utils.WorkStatus;
 import org.quartz.SchedulerException;
@@ -116,6 +117,9 @@ public class TaskServiceImpl implements TaskService {
                         .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
                 sessionService.sendMessage(userDTO.getUserID(),"您的任务准备就绪啦");
                 noticeService.saveTaskNotice(userDTO.getUserID(),projectEntity.getProjectID(),projectEntity.getProjectName());
+            }else{
+                projectEntity.setStatus(ProjectStatus.DONE.getName());
+                projectRepository.save(projectEntity);
             }
         }
     }

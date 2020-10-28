@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class IDTaskDTO {
-    private Integer taskID;
+    private String taskID;
     private Integer typeID;
     OwnerDTO owner;
 }

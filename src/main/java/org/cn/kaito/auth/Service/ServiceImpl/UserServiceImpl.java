@@ -56,8 +56,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getUserList(String type) throws CustomerException {
-        if (type.isEmpty()){
+    public List<UserDTO> getUserList(Integer type) throws CustomerException {
+        if (type == null){
             List<UserDTO> users = userRepository.getUserDTOs();
             return users;
         }else{

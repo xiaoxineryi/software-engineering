@@ -46,7 +46,7 @@ public class UserController extends BaseController{
 
     @PreAuthorize("hasPermission('user','read')")
     @GetMapping("/list")
-    public GetUserListResponse getUserList(@RequestParam(name = "type") String type) throws CustomerException {
+    public GetUserListResponse getUserList(@RequestParam(name = "type") Integer type) throws CustomerException {
         List<UserDTO> userDTOS =  userService.getUserList(type);
         GetUserListResponse getUserListResponse = new GetUserListResponse();
         getUserListResponse.setUsers(userDTOS);

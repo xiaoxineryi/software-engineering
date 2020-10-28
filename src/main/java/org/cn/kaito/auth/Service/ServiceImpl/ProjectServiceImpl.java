@@ -11,6 +11,7 @@ import org.cn.kaito.auth.Dao.Entity.UserEntity;
 import org.cn.kaito.auth.Dao.Repository.*;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.*;
+import org.cn.kaito.auth.Utils.AuthEnum;
 import org.cn.kaito.auth.Utils.ProjectStatus;
 import org.cn.kaito.auth.Utils.StatusEnum;
 import org.cn.kaito.auth.Utils.WorkStatus;
@@ -22,7 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
-import java.security.acl.Owner;
+
 import java.util.*;
 
 @Service
@@ -68,7 +69,7 @@ public class ProjectServiceImpl implements ProjectService {
             Integer typeRandom = new Random().nextInt((int)cnt)+1;
             String type = typeRepository.getTypeByID(typeRandom);
 
-            List<UserDTO> users = userService.getUserList("ROLE_WORKER"+type);
+            List<UserDTO> users = userService.getUserList(typeRandom);
             Integer userRandom= new Random().nextInt(users.size());
             UserDTO userDTO = users.get(userRandom);
             OwnerDTO ownerDTO = new OwnerDTO();
@@ -86,15 +87,12 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional
     public void createProject(String uid,CreateProjectRequest createProjectRequest) throws CustomerException, IOException {
-        /**
-         * TODO:
-         * 创建项目需要创建项目，然后将子任务变为等待状态，第一个任务变为进行中状态，通知对应的任务的用户进行操作，然后记录一次操作为保存项目，同时新建项目目录与文件。
-         */
+
         ProjectEntity projectEntity = createNewProject(uid,createProjectRequest.getName());
         ProjectEntity project = projectRepository.save(projectEntity);
         SimpleTaskDTO task = saveTasks(project.getProjectID(),createProjectRequest.getTasks());
         sessionService.sendMessage(task.getOwner().getId(),"有新的任务进入进行状态");
-        logService.saveLog(uid,project.getProjectID(),"创建");
+        logService.saveLog(uid,project.getProjectID(),"创建项目");
         noticeService.saveTaskNotice(uid,project.getProjectID(),project.getProjectName());
         workExecuteService.init(project.getProjectName());
 
@@ -140,7 +138,7 @@ public class ProjectServiceImpl implements ProjectService {
         UserDTO userDTO = userService.getUserByID(uid);
         Pageable pageable = PageRequest.of(page,10);
         List<SimpleProjectDTO> projects;
-        if (userDTO.getType().equals("ROLE_ADMIN")){
+        if (userDTO.getTypeID() == AuthEnum.ADMIN.getID()){
             projects = projectRepository.getAll(pageable);
         }else {
             projects = projectRepository.getDirectByUserID(uid,pageable);
@@ -151,6 +149,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    @Transactional
     public void editProject(String uid, EditProjectRequest editProjectRequest) throws CustomerException {
         ProjectEntity project = projectRepository.findById(editProjectRequest.getId())
                                 .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
@@ -161,13 +160,43 @@ public class ProjectServiceImpl implements ProjectService {
         }
         List<IDTaskDTO> editTasks = editProjectRequest.getTasks();
         System.out.println(editTasks);
-        List<SubTaskEntity> works = taskRepository.findAllByProjectIDAndStatusNotContainsOrderByTaskPosition(project.getProjectID(), WorkStatus.WAIT.getName());
-        for (SubTaskEntity workDone : works ){
-            if (workDone.getTaskID().equals(editTasks.get(workDone.getTaskPosition()))){
-
+        List<SubTaskEntity> works = taskRepository.findAllByProjectIDAndStatusNotContainsOrderByTaskPosition(project.getProjectID(), WorkStatus.DONE.getName());
+        int index  = 0 ;
+        for (IDTaskDTO idTaskDTO:editTasks){
+            if (idTaskDTO.getTaskID()== null){
+                continue;
+            }else{
+                SubTaskEntity task = taskRepository.findSubTaskEntityByTaskID(idTaskDTO.getTaskID())
+                        .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
+                if (task.getStatus().equals(WorkStatus.DONE.getName())){
+                    index +=1;
+                }
             }
         }
+        for (SubTaskEntity workUnDone : works ){
+            taskRepository.delete(workUnDone);
+        }
+        int length = editTasks.size();
+        for (;index<length;index ++){
+            String projectID = project.getProjectID();
+            IDTaskDTO idTaskDTO = editTasks.get(index);
+            int typeID = idTaskDTO.getTypeID();
+            SubTaskEntity subTaskEntity = new SubTaskEntity();
+            subTaskEntity.setStatus(WorkStatus.STOP.getName());
+            subTaskEntity.setTaskID(projectID+"_"+index);
+            subTaskEntity.setTypeID(typeID);
+            subTaskEntity.setExecutor(idTaskDTO.getOwner().getId());
+            subTaskEntity.setProjectID(projectID);
+            subTaskEntity.setTaskPosition(index);
 
+            taskRepository.save(subTaskEntity);
+        }
+
+        for (IDTaskDTO idTaskDTO:editTasks){
+
+            noticeService.saveChangedNotice(idTaskDTO.getOwner().getId(), project.getProjectID(), project.getProjectName());
+            sessionService.sendMessage(idTaskDTO.getOwner().getId(),"任务被重新编辑");
+        }
     }
 
     @Override
@@ -228,7 +257,7 @@ public class ProjectServiceImpl implements ProjectService {
         if (projectEntity.getStatus().equals(ProjectStatus.DONE.getName())){
             throw new CustomerException(StatusEnum.PROJECT_HAS_BEEN_DONE);
         }else if(!projectEntity.getStatus().equals(ProjectStatus.STOP.getName())){
-            throw new CustomerException(StatusEnum.PROJECY_HAS_BEEN_STOPED);
+            throw new CustomerException(StatusEnum.PROJECT_MUST_BE_STOPPED);
         }
         projectEntity.setStatus(ProjectStatus.DOING.getName());
         projectRepository.save(projectEntity);
@@ -273,10 +302,19 @@ public class ProjectServiceImpl implements ProjectService {
         projectDetailDTO.setName(projectEntity.getProjectName());
         projectDetailDTO.setCreateTime(projectEntity.getCreateDate());
         projectDetailDTO.setFinishTime(projectDetailDTO.getFinishTime());
-
+        Integer tempIndex = 0;
+        boolean flag = false;
+        UserDTO user= userService.getUserByID(uid);
+        if(user.getTypeID()==AuthEnum.ADMIN.getID()){
+            flag = true;
+        }
         List<SubTaskEntity> tasks = taskRepository.findAllByProjectIDOrderByTaskPosition(pid);
         for (SubTaskEntity task : tasks){
             UserDTO userDTO = userService.getUserByID(task.getExecutor());
+            if (task.getExecutor().equals(uid)){
+                flag = true;
+            }
+
             WorkDetailDTO workDetailDTO = new WorkDetailDTO();
             workDetailDTO.setTaskID(task.getTaskID());
             workDetailDTO.setTypeID(task.getTypeID());
@@ -287,6 +325,7 @@ public class ProjectServiceImpl implements ProjectService {
             owner.setName(userDTO.getUsername());
             workDetailDTO.setOwner(owner);
             if (task.getStatus().equals(WorkStatus.DONE.getName())){
+                tempIndex += 1;
                 Optional<EntrustEntity> entrustEntity = entrustRepository.findEntrustEntityBySubTask(task.getTaskID());
                 if (entrustEntity.isEmpty()){
                     workDetailDTO.setExecutor(owner);
@@ -300,19 +339,24 @@ public class ProjectServiceImpl implements ProjectService {
             }
             projectDetailDTO.getSubtasks().add(workDetailDTO);
         }
-
+        projectDetailDTO.setTempIndex(tempIndex);
+        if (!flag){
+            throw new CustomerException(StatusEnum.DONT_HAVE_PERMISSION_HAVE_PROJECT_DETAIL);
+        }
         return projectDetailDTO;
     }
 
     private ProjectEntity createNewProject(String uid,String projectName){
+        //
         ProjectEntity projectEntity = new ProjectEntity();
         projectEntity.setCreator(uid);
         projectEntity.setProjectName(projectName);
         projectEntity.setProjectID(UUID.randomUUID().toString().substring(10,25));
         projectEntity.setStatus(ProjectStatus.DOING.getName());
         projectEntity.setCreateDate(new Date());
-        projectEntity.setPath("a");
+        projectEntity.setPath(projectName);
         return projectEntity;
+
     }
 //    private void saveTasks(int pid,)
 

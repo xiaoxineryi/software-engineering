@@ -15,6 +15,6 @@ public class ProjectDetailDTO {
     Date createTime;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     Date finishTime;
-
+    int tempIndex;
     List<WorkDetailDTO> subtasks = new ArrayList<>();
 }

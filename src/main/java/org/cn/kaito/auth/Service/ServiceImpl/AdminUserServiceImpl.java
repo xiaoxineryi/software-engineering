@@ -68,7 +68,7 @@ public class AdminUserServiceImpl implements AdminUserService {
     public void editUser(EditUserRequest editUserRequest) throws CustomerException {
         UserEntity userEntity = userRepository.getUserEntityByUserID(editUserRequest.getUserID())
                 .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
-        if (editUserRequest.getRoleID() == 4){
+        if (editUserRequest.getRoleID() == 5){
             throw new CustomerException(StatusEnum.CANT_CREATE_SUPERADMIN);
         }
         var tasks = taskRepository.findSubTaskEntitiesByExecutor(editUserRequest.getUserID());

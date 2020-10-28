@@ -15,7 +15,7 @@ public interface UserService {
 
     void changePassword(String userID,ChangePasswordRequest changePasswordRequest) throws CustomerException;
 
-    List<UserDTO> getUserList(String type) throws CustomerException;
+    List<UserDTO> getUserList(Integer type) throws CustomerException;
 
     NoticeResponse getNotices(String uid,int page);
 

@@ -25,8 +25,8 @@ public interface UserRepository extends JpaRepository<UserEntity,String>{
     List<UserDTO> getUserDTOs();
 
     @Query("select new org.cn.kaito.auth.DTO.UserDTO(u.userName,u.userID,r.roleName,u.roleID,u.isDelete)" +
-            "from UserEntity u join RoleEntity r on u.roleID=r.roleID where r.roleName=?1")
-    List<UserDTO> getUserDTOsByType(String type);
+            "from UserEntity u join RoleEntity r on u.roleID=r.roleID where u.roleID=?1")
+    List<UserDTO> getUserDTOsByType(Integer type);
 
     @Query("select new org.cn.kaito.auth.DTO.UserDTO(u.userName,u.userID,r.roleName,u.roleID,u.isDelete)" +
             "from UserEntity u join RoleEntity r on u.roleID=r.roleID where u.userID=?1")

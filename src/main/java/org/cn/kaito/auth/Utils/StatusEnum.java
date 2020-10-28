@@ -14,6 +14,7 @@ public enum StatusEnum {
     WORK_CANT_BE_UNDO(403,"任务必须在保存状态才可以撤销"),
     WORK_CANT_BE_SUBMIT(403,"任务必须在保存状态才可以提交"),
     DELEGATE_WORK_HAS_BEEN_DONE(401,"委托任务已经完成"),
+    DONT_HAVE_PERMISSION_HAVE_PROJECT_DETAIL(403,"没有项目查看详情权限"),
     USER_CANT_BE_EDIT_WITH_WORK_UNDONE(403,"用户必须没有待执行任务才可以被修改"),
     WORK_CANT_BE_DONE(401,"该任务不在进行中"),
     DELEGATE_NOT_FOUND(401,"委托没有找到"),
