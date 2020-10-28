@@ -6,3 +6,6 @@ project-info:
 
 user-info:
     deleteID:6
+
+file:
+    docdir: doc/

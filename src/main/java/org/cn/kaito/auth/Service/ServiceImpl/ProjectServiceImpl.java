@@ -11,10 +11,7 @@ import org.cn.kaito.auth.Dao.Entity.UserEntity;
 import org.cn.kaito.auth.Dao.Repository.*;
 import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.*;
-import org.cn.kaito.auth.Utils.AuthEnum;
-import org.cn.kaito.auth.Utils.ProjectStatus;
-import org.cn.kaito.auth.Utils.StatusEnum;
-import org.cn.kaito.auth.Utils.WorkStatus;
+import org.cn.kaito.auth.Utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -176,6 +173,7 @@ public class ProjectServiceImpl implements ProjectService {
         for (SubTaskEntity workUnDone : works ){
             taskRepository.delete(workUnDone);
         }
+
         int length = editTasks.size();
         for (;index<length;index ++){
             String projectID = project.getProjectID();
@@ -299,6 +297,8 @@ public class ProjectServiceImpl implements ProjectService {
                                 .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
         ProjectDetailDTO projectDetailDTO = new ProjectDetailDTO();
         projectDetailDTO.setId(pid);
+        projectDetailDTO.setPath(FileUtil.getFileSrc(projectEntity.getProjectName()));
+        projectDetailDTO.setStatus(projectEntity.getStatus());
         projectDetailDTO.setName(projectEntity.getProjectName());
         projectDetailDTO.setCreateTime(projectEntity.getCreateDate());
         projectDetailDTO.setFinishTime(projectDetailDTO.getFinishTime());
@@ -354,7 +354,7 @@ public class ProjectServiceImpl implements ProjectService {
         projectEntity.setProjectID(UUID.randomUUID().toString().substring(10,25));
         projectEntity.setStatus(ProjectStatus.DOING.getName());
         projectEntity.setCreateDate(new Date());
-        projectEntity.setPath(projectName);
+        projectEntity.setPath(FileUtil.getFileSrc(projectName));
         return projectEntity;
 
     }
