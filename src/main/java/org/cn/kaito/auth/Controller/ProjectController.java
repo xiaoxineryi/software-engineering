@@ -86,6 +86,12 @@ public class ProjectController extends BaseController{
         projectService.restart(getUid(),projectID);
     }
 
+    @GetMapping("/delete")
+    @PreAuthorize(value = "hasPermission('project','delete')")
+    public void deleteProject(@RequestParam(name = "projectID") String projectID) throws CustomerException {
+        projectService.delete(getUid(),projectID);
+    }
+
     @GetMapping("/{pid}")
     public ProjectDetailResponse projectDetail(@PathVariable(name = "pid") String pid) throws CustomerException {
         ProjectDetailDTO projectDetailDTO = projectService.getDeatil(getUid(),pid);

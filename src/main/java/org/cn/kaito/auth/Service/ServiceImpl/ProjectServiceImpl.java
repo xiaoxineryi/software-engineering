@@ -363,6 +363,56 @@ public class ProjectServiceImpl implements ProjectService {
         }
     }
 
+    @Override
+    public void delete(String uid, String projectID) throws CustomerException {
+        //终止项目
+        ProjectEntity projectEntity = projectRepository.findById(projectID)
+                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+        if (projectEntity.getStatus().equals(ProjectStatus.DONE.getName())){
+            throw new CustomerException(StatusEnum.PROJECT_HAS_BEEN_DONE);
+        }else if(projectEntity.getStatus().equals(ProjectStatus.STOP.getName())){
+            throw new CustomerException(StatusEnum.PROJECY_HAS_BEEN_STOPED);
+        }
+        projectEntity.setStatus(ProjectStatus.END.getName());
+        projectRepository.save(projectEntity);
+
+        List<SubTaskEntity> tasks = taskRepository.findAllByProjectIDOrderByTaskPosition(projectID);
+        List<String> users = new ArrayList<>();
+        for (SubTaskEntity task : tasks){
+            if (!task.getStatus().equals(WorkStatus.DONE.getName())){
+                if (task.getStatus().equals(WorkStatus.DELEGATE.getName())){
+                    //如果是在委托中的话，就给委托的人也发消息
+                    EntrustEntity entrustEntity = entrustRepository.findEntrustEntityBySubTask(task.getTaskID())
+                            .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_DELEGATE));
+                    users.add(entrustEntity.getEntrustWorker());
+                    entrustEntity.setStatus(WorkStatus.END.getName());
+                    noticeService.saveStopEntrustNotice(entrustEntity.getEntrustWorker(),projectID,
+                            projectEntity.getProjectName(),task.getTaskID());
+
+                    //还要加上定时任务的取消
+
+                    entrustRepository.save(entrustEntity);
+                    task.setStatus(WorkStatus.END.getName());
+                    users.add(task.getExecutor());
+                    taskRepository.save(task);
+                }else {
+                    users.add(task.getExecutor());
+                    task.setStatus(WorkStatus.END.getName());
+                    taskRepository.save(task);
+                }
+            }else {
+                users.add(task.getExecutor());
+            }
+            noticeService.saveEndNotice(task.getExecutor(),projectID,projectEntity.getProjectName(),task.getTaskID());
+        }
+        System.out.println(users);
+        logService.saveLog(uid,projectID,"项目终止");
+
+        for (String user:users){
+            sessionService.sendMessage(user,"项目被终止");
+        }
+    }
+
     private ProjectEntity createNewProject(String uid,String projectName){
         //
         ProjectEntity projectEntity = new ProjectEntity();

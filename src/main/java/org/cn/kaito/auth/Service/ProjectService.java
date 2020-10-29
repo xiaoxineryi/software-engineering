@@ -27,4 +27,6 @@ public interface ProjectService {
     ProjectDetailDTO getDeatil(String uid, String pid) throws CustomerException;
 
     boolean validate(String uid, String fileName) throws CustomerException;
+
+    void delete(String uid, String projectID) throws CustomerException;
 }

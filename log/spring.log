@@ -1147,3 +1147,63 @@ org.cn.kaito.auth.Exception.CustomerException: null
 2020-10-29 14:19:31.483  INFO 5990 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2020-10-29 14:19:31.488  INFO 5990 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-10-29 14:19:31.511  INFO 5990 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 14:30:37.922  INFO 11231 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 11231 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 14:30:37.931  INFO 11231 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 14:30:39.207  INFO 11231 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 14:30:39.335  INFO 11231 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115ms. Found 10 JPA repository interfaces.
+2020-10-29 14:30:39.735  WARN 11231 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 14:30:40.195  INFO 11231 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3078cac' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 14:30:40.202  INFO 11231 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 14:30:40.730  INFO 11231 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 14:30:40.749  INFO 11231 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 14:30:40.751  INFO 11231 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 14:30:40.881  INFO 11231 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 14:30:40.881  INFO 11231 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2790 ms
+2020-10-29 14:30:40.979  WARN 11231 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 14:30:41.156  INFO 11231 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 14:30:41.395  INFO 11231 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 14:30:41.459  INFO 11231 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 14:30:41.598  INFO 11231 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 14:30:41.755  INFO 11231 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 14:30:41.880  INFO 11231 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 14:30:42.621  INFO 11231 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 14:30:42.625  INFO 11231 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 14:30:43.403  INFO 11231 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 14:30:43.413  INFO 11231 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 14:30:43.414  INFO 11231 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 14:30:43.414  INFO 11231 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 14:30:43.415  INFO 11231 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 14:30:43.415  INFO 11231 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 14:30:43.415  INFO 11231 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 14:30:43.415  INFO 11231 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@ba27ce6
+2020-10-29 14:30:43.540  INFO 11231 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fb9a83c, org.springframework.security.web.context.SecurityContextPersistenceFilter@49322d04, org.springframework.security.web.header.HeaderWriterFilter@42ac309, org.springframework.security.web.authentication.logout.LogoutFilter@33214124, org.cn.kaito.auth.Security.SecurityUserFilter@3a45308f, org.springframework.security.web.session.ConcurrentSessionFilter@39fc17be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55d8f6bb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29bf90fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@517d9cd5, org.springframework.security.web.session.SessionManagementFilter@2a2815cc, org.springframework.security.web.access.ExceptionTranslationFilter@f472245]
+2020-10-29 14:30:43.677  INFO 11231 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 14:30:43.950  INFO 11231 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 14:30:44.003  INFO 11231 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 14:30:44.004  INFO 11231 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 14:30:44.004  INFO 11231 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 14:30:44.015  INFO 11231 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 7.774 seconds (JVM running for 10.63)
+2020-10-29 14:31:00.454  INFO 11231 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-29 14:31:00.457  INFO 11231 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-29 14:31:00.467  INFO 11231 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-10-29 14:31:00.489  INFO 11231 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 14:31:00.530  INFO 11231 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 14:31:00.563  INFO 11231 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 14:31:00.563  INFO 11231 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 14:31:42.632  INFO 11231 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 14:31:42.693  INFO 11231 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 14:31:42.698  INFO 11231 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 14:31:42.699  INFO 11231 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 14:31:42.699  INFO 11231 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 14:31:42.699  INFO 11231 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 14:31:42.703  INFO 11231 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 14:31:42.709  INFO 11231 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 14:31:42.715  INFO 11231 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 14:31:42.734  INFO 11231 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

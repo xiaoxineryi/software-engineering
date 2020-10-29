@@ -8,7 +8,8 @@ public enum WorkStatus {
     WAIT("等待"),
     STOP("中止"),
     FAILED("委托期间内未完成"),
-    TAKE("未完成任务被主动收回")
+    TAKE("未完成任务被主动收回"),
+    END("终止")
     ;
     WorkStatus(String name){
         this.name = name;
