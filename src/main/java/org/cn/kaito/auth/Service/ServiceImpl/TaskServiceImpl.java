@@ -289,7 +289,7 @@ public class TaskServiceImpl implements TaskService {
            entrustTaskDTO.setProjectName(projectEntity.getProjectName());
            entrustTaskDTO.setTaskID(subTaskEntity.getTaskID());
            entrustTaskDTO.setWorkStatus(subTaskEntity.getStatus());
-           UserDTO userDTO= userRepository.getUserDTOsByID(entrustEntity.getEntrustWorker())
+           UserDTO userDTO= userRepository.getUserDTOsByID(subTaskEntity.getExecutor())
                    .orElseThrow(()->new CustomerException(StatusEnum.CANT_FIND_USER));
            OwnerDTO ownerDTO = new OwnerDTO();
            ownerDTO.setId(userDTO.getUserID());

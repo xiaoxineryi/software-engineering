@@ -406,7 +406,7 @@ public class ProjectServiceImpl implements ProjectService {
             noticeService.saveEndNotice(task.getExecutor(),projectID,projectEntity.getProjectName(),task.getTaskID());
         }
         System.out.println(users);
-        logService.saveLog(uid,projectID,"项目终止");
+        logService.saveLog(uid,projectID,"终止项目");
 
         for (String user:users){
             sessionService.sendMessage(user,"项目被终止");

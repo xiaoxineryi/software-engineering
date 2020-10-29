@@ -1661,3 +1661,292 @@ java.util.NoSuchElementException: No value present
 2020-10-29 15:02:47.170  INFO 14694 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2020-10-29 15:02:47.174  INFO 14694 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-10-29 15:02:47.187  INFO 14694 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 15:05:40.773  INFO 17975 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 17975 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 15:05:40.782  INFO 17975 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 15:05:41.754  INFO 17975 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 15:05:42.064  INFO 17975 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 251ms. Found 10 JPA repository interfaces.
+2020-10-29 15:05:42.341  WARN 17975 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 15:05:42.599  INFO 17975 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2f4e40d7' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 15:05:42.603  INFO 17975 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 15:05:42.904  INFO 17975 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 15:05:42.912  INFO 17975 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 15:05:42.913  INFO 17975 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 15:05:42.999  INFO 17975 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 15:05:42.999  INFO 17975 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2085 ms
+2020-10-29 15:05:43.044  WARN 17975 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 15:05:43.236  INFO 17975 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 15:05:43.409  INFO 17975 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 15:05:43.447  INFO 17975 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 15:05:43.511  INFO 17975 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 15:05:43.717  INFO 17975 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 15:05:43.825  INFO 17975 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 15:05:44.363  INFO 17975 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 15:05:44.367  INFO 17975 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 15:05:45.127  INFO 17975 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 15:05:45.139  INFO 17975 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 15:05:45.139  INFO 17975 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 15:05:45.139  INFO 17975 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 15:05:45.140  INFO 17975 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 15:05:45.140  INFO 17975 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 15:05:45.140  INFO 17975 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 15:05:45.140  INFO 17975 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2dcbf825
+2020-10-29 15:05:45.287  INFO 17975 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34ff08c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@32121140, org.springframework.security.web.header.HeaderWriterFilter@26728255, org.springframework.security.web.authentication.logout.LogoutFilter@3aa8c337, org.cn.kaito.auth.Security.SecurityUserFilter@52ccf197, org.springframework.security.web.session.ConcurrentSessionFilter@5eae392d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c81ddab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f8fe81e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e2344da, org.springframework.security.web.session.SessionManagementFilter@39fc17be, org.springframework.security.web.access.ExceptionTranslationFilter@22d47f09]
+2020-10-29 15:05:45.432  INFO 17975 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 15:05:45.710  INFO 17975 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 15:05:45.763  INFO 17975 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 15:05:45.764  INFO 17975 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 15:05:45.764  INFO 17975 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 15:05:45.773  INFO 17975 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 5.723 seconds (JVM running for 7.449)
+2020-10-29 15:24:55.621  INFO 17975 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 15:24:55.707  INFO 17975 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 15:24:55.709  INFO 17975 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 15:24:55.709  INFO 17975 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 15:24:55.709  INFO 17975 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 15:24:55.709  INFO 17975 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 15:24:55.720  INFO 17975 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 15:24:55.722  INFO 17975 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 15:24:55.726  INFO 17975 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 15:24:55.736  INFO 17975 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 15:25:01.597  INFO 21260 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 21260 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 15:25:01.599  INFO 21260 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 15:25:02.253  INFO 21260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 15:25:02.342  INFO 21260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74ms. Found 10 JPA repository interfaces.
+2020-10-29 15:25:02.571  WARN 21260 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 15:25:02.740  INFO 21260 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6f1a16fe' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 15:25:02.743  INFO 21260 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 15:25:03.009  INFO 21260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 15:25:03.018  INFO 21260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 15:25:03.018  INFO 21260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 15:25:03.097  INFO 21260 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 15:25:03.097  INFO 21260 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1470 ms
+2020-10-29 15:25:03.147  WARN 21260 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 15:25:03.292  INFO 21260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 15:25:03.426  INFO 21260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 15:25:03.452  INFO 21260 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 15:25:03.479  INFO 21260 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 15:25:03.636  INFO 21260 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 15:25:03.730  INFO 21260 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 15:25:04.162  INFO 21260 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 15:25:04.167  INFO 21260 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 15:25:04.834  INFO 21260 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 15:25:04.841  INFO 21260 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 15:25:04.841  INFO 21260 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 15:25:04.842  INFO 21260 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 15:25:04.842  INFO 21260 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 15:25:04.843  INFO 21260 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 15:25:04.843  INFO 21260 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 15:25:04.843  INFO 21260 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@e344f14
+2020-10-29 15:25:04.953  INFO 21260 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5eb9bf7d, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b53e6fc, org.springframework.security.web.header.HeaderWriterFilter@7fb9a83c, org.springframework.security.web.authentication.logout.LogoutFilter@7c4a5ef2, org.cn.kaito.auth.Security.SecurityUserFilter@4769378c, org.springframework.security.web.session.ConcurrentSessionFilter@7f9d40b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@641cea11, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a8bcb64, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64f613da, org.springframework.security.web.session.SessionManagementFilter@79b0956e, org.springframework.security.web.access.ExceptionTranslationFilter@3dc7c5fd]
+2020-10-29 15:25:05.055  INFO 21260 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 15:25:05.332  INFO 21260 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 15:25:05.376  INFO 21260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 15:25:05.377  INFO 21260 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 15:25:05.377  INFO 21260 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 15:25:05.386  INFO 21260 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 4.224 seconds (JVM running for 5.387)
+2020-10-29 15:29:54.264  INFO 21260 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-29 15:29:54.265  INFO 21260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-29 15:29:54.278  INFO 21260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-10-29 15:29:54.310  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:57.514  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:57.520  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:57.521  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:57.527  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:57.546  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:57.551  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:57.549  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:57.552  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:57.582  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:57.584  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:57.586  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:57.586  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:57.588  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:57.588  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:57.592  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:57.592  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:58.969  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:58.971  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:58.971  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:58.972  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:58.975  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:58.975  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:58.976  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:58.979  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:58.980  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:29:58.985  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:29:58.980  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:58.985  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:58.986  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:58.986  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:58.986  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:58.986  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:58.990  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:58.990  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:29:58.990  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:29:58.990  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:06.179  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:06.179  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:06.181  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:06.181  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:06.184  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:06.184  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:06.187  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:06.189  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:06.189  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:06.189  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:06.189  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:06.191  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:06.198  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:06.198  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:06.201  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:06.201  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:07.196  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:07.196  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:07.198  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:07.202  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:07.204  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:07.210  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:07.212  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:07.213  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:07.213  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:07.212  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:07.223  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:07.222  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:07.224  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:07.226  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:07.226  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:07.226  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:07.228  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:07.229  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:07.233  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:07.234  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:14.359  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:14.359  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:14.361  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:14.361  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:14.363  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:14.364  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:14.365  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:14.367  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:14.367  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:14.367  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:14.371  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:14.372  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:14.371  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:14.372  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:14.373  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:14.373  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:19.291  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:19.296  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:19.313  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:19.316  INFO 21260 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:28.016  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:28.016  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 15:30:28.018  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:28.018  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 15:30:28.022  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:28.022  INFO 21260 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 15:30:28.022  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 15:30:28.024  INFO 21260 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 16:03:04.839  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:03:04.839  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:03:04.849  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 16:03:04.851  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 16:03:04.857  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 16:03:04.857  INFO 21260 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 16:03:04.857  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 16:03:04.858  INFO 21260 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 16:03:07.774  INFO 21260 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:03:07.776  INFO 21260 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:07:04.228  INFO 21260 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:07:05.740  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:07:05.742  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551801
+2020-10-29 16:07:05.744  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:07:05.745  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551801
+2020-10-29 16:07:05.749  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551801], setting security context
+2020-10-29 16:07:05.749  INFO 21260 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [user-read, user-add, user-edit, user-changePosition, user-changePwd, project-read, role-add, role-edit, permission-add, permission-edit]
+2020-10-29 16:07:05.750  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551801], setting security context
+2020-10-29 16:07:05.754  INFO 21260 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [user-read, user-add, user-edit, user-changePosition, user-changePwd, project-read, role-add, role-edit, permission-add, permission-edit]
+2020-10-29 16:09:32.303  INFO 21260 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 16:09:32.365  INFO 21260 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 16:09:32.366  INFO 21260 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 16:09:32.366  INFO 21260 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 16:09:32.366  INFO 21260 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 16:09:32.366  INFO 21260 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 16:09:32.367  INFO 21260 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 16:09:32.368  INFO 21260 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 16:09:32.371  INFO 21260 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 16:09:32.375  INFO 21260 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 16:09:50.525  INFO 28282 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 28282 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 16:09:50.555  INFO 28282 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 16:09:51.272  INFO 28282 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 16:09:51.339  INFO 28282 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61ms. Found 10 JPA repository interfaces.
+2020-10-29 16:09:51.568  WARN 28282 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 16:09:51.756  INFO 28282 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6f1a16fe' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 16:09:51.760  INFO 28282 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 16:09:51.977  INFO 28282 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 16:09:51.984  INFO 28282 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 16:09:51.984  INFO 28282 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 16:09:52.051  INFO 28282 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 16:09:52.051  INFO 28282 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1452 ms
+2020-10-29 16:09:52.139  WARN 28282 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 16:09:52.235  INFO 28282 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 16:09:52.495  INFO 28282 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 16:09:52.549  INFO 28282 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 16:09:52.617  INFO 28282 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 16:09:52.690  INFO 28282 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 16:09:52.769  INFO 28282 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 16:09:53.382  INFO 28282 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 16:09:53.387  INFO 28282 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 16:09:54.296  INFO 28282 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 16:09:54.308  INFO 28282 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 16:09:54.308  INFO 28282 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 16:09:54.309  INFO 28282 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 16:09:54.310  INFO 28282 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 16:09:54.311  INFO 28282 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 16:09:54.311  INFO 28282 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 16:09:54.312  INFO 28282 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@43094e0c
+2020-10-29 16:09:54.477  INFO 28282 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3293030b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a9040f0, org.springframework.security.web.header.HeaderWriterFilter@633c0a61, org.springframework.security.web.authentication.logout.LogoutFilter@5382a35f, org.cn.kaito.auth.Security.SecurityUserFilter@4769378c, org.springframework.security.web.session.ConcurrentSessionFilter@fdf029a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d3768ce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@517d9cd5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b53e6fc, org.springframework.security.web.session.SessionManagementFilter@5c81ddab, org.springframework.security.web.access.ExceptionTranslationFilter@5c43cb12]
+2020-10-29 16:09:54.671  INFO 28282 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 16:09:55.403  INFO 28282 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 16:09:55.456  INFO 28282 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 16:09:55.457  INFO 28282 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 16:09:55.458  INFO 28282 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 16:09:55.467  INFO 28282 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 5.371 seconds (JVM running for 6.081)
+2020-10-29 16:10:24.032  INFO 28282 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-29 16:10:24.034  INFO 28282 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-29 16:10:24.067  INFO 28282 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 32 ms
+2020-10-29 16:10:24.099  INFO 28282 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 16:10:24.156  INFO 28282 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 16:10:24.194  INFO 28282 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 16:10:24.195  INFO 28282 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 16:10:41.856  INFO 28282 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 16:10:41.920  INFO 28282 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 16:10:41.924  INFO 28282 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 16:10:41.925  INFO 28282 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 16:10:41.925  INFO 28282 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 16:10:41.926  INFO 28282 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 16:10:41.926  INFO 28282 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 16:10:41.932  INFO 28282 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 16:10:41.938  INFO 28282 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 16:10:41.959  INFO 28282 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
