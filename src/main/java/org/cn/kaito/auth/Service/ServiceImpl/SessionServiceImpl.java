@@ -24,9 +24,7 @@ public class SessionServiceImpl implements SessionService {
     public void addByToken(String token,Session session) throws CustomerException {
         String userID = userService.getUserIDByToken(token);
         addByID(userID,session);
-        System.out.println(token);
-        System.out.println(userID);
-        sendMessage(userID,"succeed");
+
     }
 
     @Override
