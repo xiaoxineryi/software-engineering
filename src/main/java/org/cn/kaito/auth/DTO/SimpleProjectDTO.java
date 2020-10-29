@@ -11,7 +11,7 @@ public class SimpleProjectDTO {
     String id;
     String name;
     String status;
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     Date startTime;
     String creator;
     public SimpleProjectDTO(String id, String name, String creator,String status,Date startTime) {
