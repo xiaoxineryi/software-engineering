@@ -7,6 +7,7 @@ public enum StatusEnum {
     SUCCESS(200, ""),
     SERVER_CANT_WORK(401,"服务器异常，请稍后再试"),
     USER_CANT_WORK(403,"用户无权进行该类任务工作"),
+    WORK_MUST_BE_DONE_BY_HIMSELF(403,"任务必须由任务分配的对应人员完成"),
     WRONG_TOKEN_FOR_USER(401, "自动登录已过期，请重新登录"),
     CANT_CREATE_SUPERADMIN(403,"不能创建超级管理员"),
     ACCOUNT_HAS_BEEN_DELETED(401,"帐号已经被注销"),

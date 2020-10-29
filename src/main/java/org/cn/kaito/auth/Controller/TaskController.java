@@ -21,16 +21,17 @@ public class TaskController extends BaseController {
     @Autowired
     TaskService taskService;
 
+    @PreAuthorize("hasPermission('task','execute')")
     @GetMapping("/execute")
     public void execute(@RequestParam(name = "taskID") String taskID) throws CustomerException, IOException {
         taskService.execute(getUid(),taskID);
     }
-
+    @PreAuthorize("hasPermission('task','execute')")
     @PostMapping("/submit")
     public void submit(@RequestParam(name = "taskID") String taskID) throws IOException, CustomerException {
         taskService.submit(getUid(),taskID);
     }
-
+    @PreAuthorize("hasPermission('task','execute')")
     @PostMapping("/undo")
     public void undo(@RequestParam(name = "taskID") String taskID) throws IOException, CustomerException {
         taskService.undo(getUid(),taskID);
@@ -45,14 +46,14 @@ public class TaskController extends BaseController {
         taskListResponse.setSelfTasks(selfTaskDTOS);
         return taskListResponse;
     }
-
+    @PreAuthorize("hasPermission('task','execute')")
     @PostMapping("/delegate")
     public void delegate(@RequestBody DelegateRequest delegateRequest) throws CustomerException {
         taskService.delegate(getUid(),delegateRequest);
     }
-
+    @PreAuthorize("hasPermission('task','execute')")
     @GetMapping("/delegateDelete")
     public void delegateDelete(@RequestParam(name = "taskID") String taskID ) throws CustomerException, SchedulerException {
-        taskService.delegateDelete(taskID);
+        taskService.delegateDelete(getUid(),taskID);
     }
 }

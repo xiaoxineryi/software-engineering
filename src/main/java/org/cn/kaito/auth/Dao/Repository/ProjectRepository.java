@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<ProjectEntity,String> {
@@ -15,6 +16,8 @@ public interface ProjectRepository extends JpaRepository<ProjectEntity,String> {
             ",p.status,p.createDate)" +
             "from ProjectEntity p order by p.createDate desc ")
     List<SimpleProjectDTO> getAll(Pageable pageable);
+
+    Optional<ProjectEntity> findProjectEntityByProjectName(String projectName);
 
     @Query(value = "select distinct new org.cn.kaito.auth.DTO.SimpleProjectDTO(p.projectID,p.projectName" +
             ",p.status,p.createDate)" +

@@ -59,6 +59,7 @@ public class TaskServiceImpl implements TaskService {
     @Autowired
     TypeRepository typeRepository;
 
+    @Transactional
     @Override
     public void execute(String uid, String taskID) throws CustomerException, IOException {
         //需要判断 是自己执行的 还是被委托人执行的
@@ -80,6 +81,9 @@ public class TaskServiceImpl implements TaskService {
             if (!entrustEntity.getStatus().equals(WorkStatus.DOING.getName())){
                     throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
                 }
+            if (!entrustEntity.getEntrustWorker().equals(uid)){
+                throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
+            }
             // 工作
             workExecuteService.save(projectEntity.getProjectName(),userEntity.getUserName(),
                         uid,type);
@@ -93,6 +97,9 @@ public class TaskServiceImpl implements TaskService {
             // 如果不是委托状态的话
             if (!subTaskEntity.getStatus().equals(WorkStatus.DOING.getName())){
                 throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+            }
+            if (!subTaskEntity.getExecutor().equals(uid)){
+                throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
             }
             workExecuteService.save(projectEntity.getProjectName(),userEntity.getUserName(),
                     userEntity.getUserID(),type);
@@ -126,6 +133,9 @@ public class TaskServiceImpl implements TaskService {
             if (!entrustEntity.getStatus().equals(WorkStatus.SAVE.getName())){
                 throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
             }
+            if (!entrustEntity.getEntrustWorker().equals(uid)){
+                throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
+            }
             entrustEntity.setStatus(WorkStatus.DONE.getName());
             entrustRepository.save(entrustEntity);
             //记录操作 给委托人发消息
@@ -137,6 +147,9 @@ public class TaskServiceImpl implements TaskService {
             //如果是自己做的话 保存操作
             if (!subTaskEntity.getStatus().equals(WorkStatus.SAVE.getName())){
                 throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+            }
+            if (!subTaskEntity.getExecutor().equals(uid)){
+                throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
             }
             logService.saveLog(uid,projectEntity.getProjectID(),"提交"+type+"类任务");
         }
@@ -160,6 +173,7 @@ public class TaskServiceImpl implements TaskService {
         }
     }
 
+    @Transactional
     @Override
     public void undo(String uid, String taskID) throws CustomerException, IOException {
         SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(taskID)
@@ -178,8 +192,11 @@ public class TaskServiceImpl implements TaskService {
             //如果是委托中的状态的话
             EntrustEntity entrustEntity = entrustRepository.findEntrustEntityBySubTask(taskID)
                     .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
-            if (!entrustEntity.getStatus().equals(WorkStatus.DOING.getName())){
-                throw new CustomerException(StatusEnum.WORK_CANT_BE_DONE);
+            if (!entrustEntity.getStatus().equals(WorkStatus.SAVE.getName())){
+                throw new CustomerException(StatusEnum.WORK_CANT_BE_UNDO);
+            }
+            if (!entrustEntity.getEntrustWorker().equals(uid)){
+                throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
             }
             // 工作
             workExecuteService.undo(projectEntity.getProjectName(),userEntity.getUserName());
@@ -193,6 +210,9 @@ public class TaskServiceImpl implements TaskService {
             //如果是自己在执行
             if (!subTaskEntity.getStatus().equals(WorkStatus.SAVE.getName())){
                 throw new CustomerException(StatusEnum.WORK_CANT_BE_UNDO);
+            }
+            if (!subTaskEntity.getExecutor().equals(uid)){
+                throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
             }
             workExecuteService.undo(projectEntity.getProjectName());
             subTaskEntity.setStatus(WorkStatus.DOING.getName());
@@ -295,6 +315,9 @@ public class TaskServiceImpl implements TaskService {
         if (entrustEntityt.isPresent()){
             throw new CustomerException(StatusEnum.SAME_WORK_CANT_BE_DELEGATE_TWICE);
         }
+        if (!subTaskEntity.getExecutor().equals(uid)){
+            throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
+        }
         subTaskEntity.setStatus(WorkStatus.DELEGATE.getName());
         ProjectEntity projectEntity = projectRepository.findById(subTaskEntity.getProjectID())
                 .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
@@ -307,7 +330,8 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void delegateDelete(String taskID) throws CustomerException, SchedulerException {
+    @Transactional
+    public void delegateDelete(String uid,String taskID) throws CustomerException, SchedulerException {
         SubTaskEntity subTaskEntity = taskRepository.findSubTaskEntityByTaskID(taskID)
                 .orElseThrow(()->new CustomerException(StatusEnum.TASK_NOT_FOUND));
         // 取消委托包含 取消定时任务 发送通知 更新原本任务的状态
@@ -315,6 +339,9 @@ public class TaskServiceImpl implements TaskService {
                 .orElseThrow(()->new CustomerException(StatusEnum.DELEGATE_NOT_FOUND));
         if (entrustEntity.getStatus().equals(WorkStatus.DONE.getName())){
             throw new CustomerException(StatusEnum.DELEGATE_WORK_HAS_BEEN_DONE);
+        }
+        if (!subTaskEntity.getExecutor().equals(uid)){
+            throw new CustomerException(StatusEnum.WORK_MUST_BE_DONE_BY_HIMSELF);
         }
         entrustEntity.setStatus(WorkStatus.TAKE.getName());
 

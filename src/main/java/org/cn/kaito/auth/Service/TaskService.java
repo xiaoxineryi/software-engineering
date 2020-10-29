@@ -22,5 +22,5 @@ public interface TaskService {
 
     void delegate(String uid,DelegateRequest delegateRequest) throws CustomerException;
 
-    void delegateDelete(String taskID) throws CustomerException, SchedulerException;
+    void delegateDelete(String uid,String taskID) throws CustomerException, SchedulerException;
 }

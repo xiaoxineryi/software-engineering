@@ -10,6 +10,7 @@ import org.cn.kaito.auth.Dao.Entity.SubTaskEntity;
 import org.cn.kaito.auth.Dao.Entity.UserEntity;
 import org.cn.kaito.auth.Dao.Repository.*;
 import org.cn.kaito.auth.Exception.CustomerException;
+import org.cn.kaito.auth.Schedule.CronSchedulerJob;
 import org.cn.kaito.auth.Service.*;
 import org.cn.kaito.auth.Utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Autowired
     WorkExecuteService workExecuteService;
+
+    @Autowired
+    CronSchedulerJob cronSchedulerService;
 
     @Override
     public RandomTasksResponse getRandomTasks() throws CustomerException {
@@ -198,7 +202,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-//    @Transactional
+    @Transactional
     public void stopProject(String uid,String projectID) throws CustomerException {
         // 修改项目状态，修改子任务状态，通知所有在项目中的用户,添加操作记录。
         ProjectEntity projectEntity = projectRepository.findById(projectID)
@@ -225,6 +229,7 @@ public class ProjectServiceImpl implements ProjectService {
                             projectEntity.getProjectName(),task.getTaskID());
 
                     //还要加上定时任务的取消
+
                     entrustRepository.save(entrustEntity);
                     task.setStatus(WorkStatus.STOP.getName());
                     users.add(task.getExecutor());
@@ -344,6 +349,18 @@ public class ProjectServiceImpl implements ProjectService {
             throw new CustomerException(StatusEnum.DONT_HAVE_PERMISSION_HAVE_PROJECT_DETAIL);
         }
         return projectDetailDTO;
+    }
+
+    @Override
+    public boolean validate(String uid, String fileName) throws CustomerException {
+        ProjectEntity projectEntity = projectRepository.findProjectEntityByProjectName(fileName)
+                                .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
+        Optional<SubTaskEntity> task= taskRepository.findAllByExecutorAndAndProjectID(uid,projectEntity.getProjectID());
+        if (task.isEmpty()) {
+            return false;
+        }else {
+            return true;
+        }
     }
 
     private ProjectEntity createNewProject(String uid,String projectName){

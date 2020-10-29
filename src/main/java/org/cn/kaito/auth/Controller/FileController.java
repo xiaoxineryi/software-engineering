@@ -1,6 +1,9 @@
 package org.cn.kaito.auth.Controller;
 
+import org.cn.kaito.auth.Exception.CustomerException;
 import org.cn.kaito.auth.Service.FileService;
+import org.cn.kaito.auth.Service.ProjectService;
+import org.cn.kaito.auth.Utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,10 +20,16 @@ import java.io.OutputStream;
 
 @RestController
 @RequestMapping("/file")
-public class FileController {
+public class FileController extends BaseController {
+
+    @Autowired
+    ProjectService projectService;
 
     @RequestMapping("/download/{fileName}")
     public void download(HttpServletResponse response,@PathVariable(name = "fileName")String fileName ) throws Exception {
+        if (!projectService.validate(getUid(),fileName)){
+            throw new CustomerException(StatusEnum.USER_CANT_WORK);
+        }
         // 文件地址，真实环境是存放在数据库中的
         File file = new File("./src/main/resources/project/"+fileName+"/"+fileName+".txt");
         // 穿件输入对象
