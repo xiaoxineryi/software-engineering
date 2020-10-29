@@ -3845,3 +3845,970 @@ java.util.NoSuchElementException: No value present
 2020-10-29 17:31:01.390  INFO 45501 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2020-10-29 17:31:01.394  INFO 45501 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-10-29 17:31:01.407  INFO 45501 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 17:31:56.455  INFO 46471 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 46471 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 17:31:56.458  INFO 46471 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 17:31:57.739  INFO 46471 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 17:31:57.995  INFO 46471 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 173ms. Found 10 JPA repository interfaces.
+2020-10-29 17:31:58.303  WARN 46471 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 17:31:58.521  INFO 46471 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@340a8894' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 17:31:58.527  INFO 46471 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 17:31:58.980  INFO 46471 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 17:31:58.989  INFO 46471 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 17:31:58.989  INFO 46471 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 17:31:59.065  INFO 46471 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 17:31:59.065  INFO 46471 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2538 ms
+2020-10-29 17:31:59.136  WARN 46471 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 17:31:59.275  INFO 46471 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 17:31:59.622  INFO 46471 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 17:31:59.689  INFO 46471 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 17:31:59.821  INFO 46471 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 17:32:00.133  INFO 46471 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 17:32:00.381  INFO 46471 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 17:32:01.005  INFO 46471 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 17:32:01.010  INFO 46471 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 17:32:02.472  INFO 46471 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 17:32:02.484  INFO 46471 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 17:32:02.484  INFO 46471 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 17:32:02.485  INFO 46471 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 17:32:02.485  INFO 46471 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 17:32:02.485  INFO 46471 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 17:32:02.485  INFO 46471 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 17:32:02.486  INFO 46471 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@19c24321
+2020-10-29 17:32:02.741  INFO 46471 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62871522, org.springframework.security.web.context.SecurityContextPersistenceFilter@633c0a61, org.springframework.security.web.header.HeaderWriterFilter@110318a7, org.springframework.security.web.authentication.logout.LogoutFilter@3a9040f0, org.cn.kaito.auth.Security.SecurityUserFilter@6fe9c048, org.springframework.security.web.session.ConcurrentSessionFilter@17d0d3d7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b6b746b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f7a65e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7fb9a83c, org.springframework.security.web.session.SessionManagementFilter@281963c, org.springframework.security.web.access.ExceptionTranslationFilter@7607340f]
+2020-10-29 17:32:03.004  INFO 46471 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 17:32:03.436  INFO 46471 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 17:32:03.517  INFO 46471 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 17:32:03.520  INFO 46471 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 17:32:03.520  INFO 46471 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 17:32:03.533  INFO 46471 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 7.856 seconds (JVM running for 9.278)
+2020-10-29 17:32:32.992  INFO 46471 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-29 17:32:32.994  INFO 46471 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-29 17:32:33.007  INFO 46471 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-10-29 17:32:33.030  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:32:33.090  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 17:32:33.125  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 17:32:33.125  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 17:32:33.282  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.a.C.handler.GlobalResponseHandler  : 发生异常
+
+org.cn.kaito.auth.Exception.CustomerException: null
+	at org.cn.kaito.auth.Service.ServiceImpl.TaskServiceImpl.execute(TaskServiceImpl.java:102) ~[classes/:na]
+	at org.cn.kaito.auth.Service.ServiceImpl.TaskServiceImpl$$FastClassBySpringCGLIB$$439a3291.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367) ~[spring-tx-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118) ~[spring-tx-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.cn.kaito.auth.Service.ServiceImpl.TaskServiceImpl$$EnhancerBySpringCGLIB$$8d97bd30.execute(<generated>) ~[classes/:na]
+	at org.cn.kaito.auth.Controller.TaskController.execute(TaskController.java:27) ~[classes/:na]
+	at org.cn.kaito.auth.Controller.TaskController$$FastClassBySpringCGLIB$$fcf907c6.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:69) ~[spring-security-core-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.cn.kaito.auth.Controller.TaskController$$EnhancerBySpringCGLIB$$c3c1295a.execute(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:152) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.cn.kaito.auth.Security.SecurityUserFilter.doFilterInternal(SecurityUserFilter.java:64) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-10-29 17:49:12.709  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:49:12.710  INFO 46471 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:49:12.710  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:49:12.710  INFO 46471 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:49:12.709  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:49:12.730  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:49:13.125  INFO 46471 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:49:13.125  INFO 46471 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:49:13.125  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:49:13.125  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:49:13.125  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:49:13.125  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 17:49:13.253  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:49:13.257  INFO 46471 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:49:13.259  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:49:13.262  INFO 46471 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:49:13.264  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 17:49:13.266  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 17:49:13.264  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:49:13.264  INFO 46471 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:49:13.274  INFO 46471 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:49:13.273  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:49:13.274  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:49:13.275  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:49:13.510  INFO 46471 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:49:13.514  INFO 46471 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 17:49:13.519  INFO 46471 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 17:49:13.519  INFO 46471 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 17:51:09.009  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:51:09.009  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:51:09.009  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:51:09.009  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:51:09.009  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:51:09.266  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:51:09.407  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 17:51:09.408  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:51:09.407  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:51:09.407  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:51:09.409  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:51:09.411  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 17:51:09.433  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 17:51:09.434  INFO 46471 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 17:51:09.437  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:51:09.434  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:51:09.438  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:51:09.438  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:51:09.440  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:51:09.441  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:51:09.443  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:51:09.443  INFO 46471 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:51:09.449  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 17:51:09.452  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 17:51:09.564  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:51:09.566  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 17:51:09.570  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 17:51:09.570  INFO 46471 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 17:51:48.384  INFO 46471 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:52:18.803  INFO 46471 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:52:18.888  INFO 46471 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:52:19.150  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:52:19.181  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is fc2-4203-9
+2020-10-29 17:52:19.196  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[fc2-4203-9], setting security context
+2020-10-29 17:52:19.196  INFO 46471 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 17:52:19.195 ERROR 46471 --- [http-nio-8080-exec-10] o.a.t.websocket.pojo.PojoEndpointBase    : No error handling configured for [org.cn.kaito.auth.WebSocket.WsController] and the following error occurred
+
+org.cn.kaito.auth.Exception.CustomerException: null
+	at org.cn.kaito.auth.Service.ServiceImpl.UserServiceImpl.lambda$getUserIDByToken$2(UserServiceImpl.java:47) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408) ~[na:na]
+	at org.cn.kaito.auth.Service.ServiceImpl.UserServiceImpl.getUserIDByToken(UserServiceImpl.java:47) ~[classes/:na]
+	at org.cn.kaito.auth.Service.ServiceImpl.SessionServiceImpl.addByToken(SessionServiceImpl.java:25) ~[classes/:na]
+	at org.cn.kaito.auth.WebSocket.WsController.OnOpen(WsController.java:35) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:65) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:64) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:133) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:915) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-10-29 17:52:19.241 ERROR 46471 --- [http-nio-8080-exec-10] o.a.t.websocket.pojo.PojoEndpointBase    : Failed to call onClose method of POJO end point for POJO of type [org.cn.kaito.auth.WebSocket.WsController]
+
+javax.websocket.DecodeException: Failed to decode path parameter value [null] to expected type [int]
+	at org.apache.tomcat.websocket.pojo.PojoMethodMapping.buildArgs(PojoMethodMapping.java:354) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoMethodMapping.getOnCloseArgs(PojoMethodMapping.java:249) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:104) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:556) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:502) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:460) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:447) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:441) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:92) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:77) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:64) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:133) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:915) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.lang.NumberFormatException: null
+	at java.base/java.lang.Integer.parseInt(Integer.java:614) ~[na:na]
+	at java.base/java.lang.Integer.valueOf(Integer.java:983) ~[na:na]
+	at org.apache.tomcat.websocket.Util.coerceToType(Util.java:321) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoMethodMapping.buildArgs(PojoMethodMapping.java:352) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	... 18 common frames omitted
+
+2020-10-29 17:52:19.241 ERROR 46471 --- [http-nio-8080-exec-10] o.a.t.websocket.pojo.PojoEndpointBase    : No error handling configured for [org.cn.kaito.auth.WebSocket.WsController] and the following error occurred
+
+javax.websocket.DecodeException: Failed to decode path parameter value [null] to expected type [int]
+	at org.apache.tomcat.websocket.pojo.PojoMethodMapping.buildArgs(PojoMethodMapping.java:354) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoMethodMapping.getOnCloseArgs(PojoMethodMapping.java:249) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.onClose(PojoEndpointBase.java:104) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.fireEndpointOnClose(WsSession.java:556) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:502) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.doClose(WsSession.java:460) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:447) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.WsSession.close(WsSession.java:441) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.handleOnOpenOrCloseError(PojoEndpointBase.java:92) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointBase.doOnOpen(PojoEndpointBase.java:77) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoEndpointServer.onOpen(PojoEndpointServer.java:64) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.init(WsHttpUpgradeHandler.java:133) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:915) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.lang.NumberFormatException: null
+	at java.base/java.lang.Integer.parseInt(Integer.java:614) ~[na:na]
+	at java.base/java.lang.Integer.valueOf(Integer.java:983) ~[na:na]
+	at org.apache.tomcat.websocket.Util.coerceToType(Util.java:321) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.pojo.PojoMethodMapping.buildArgs(PojoMethodMapping.java:352) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	... 18 common frames omitted
+
+2020-10-29 17:57:32.298  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:57:32.844  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is fc2-4203-9
+2020-10-29 17:57:32.883  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[fc2-4203-9], setting security context
+2020-10-29 17:57:32.883  INFO 46471 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 17:57:33.776  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 17:57:33.780  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is fc2-4203-9
+2020-10-29 17:57:33.794  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[fc2-4203-9], setting security context
+2020-10-29 17:57:33.794  INFO 46471 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:01:53.873  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:01:53.888  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is fc2-4203-9
+2020-10-29 18:01:53.899  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[fc2-4203-9], setting security context
+2020-10-29 18:01:53.900  INFO 46471 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:15:49.665  INFO 46471 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 18:15:49.816  INFO 46471 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 18:15:49.824  INFO 46471 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 18:15:49.827  INFO 46471 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 18:15:49.828  INFO 46471 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 18:15:49.828  INFO 46471 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 18:15:49.829  INFO 46471 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 18:15:49.841  INFO 46471 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 18:15:49.860  INFO 46471 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 18:15:49.947  INFO 46471 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 18:42:02.943  INFO 3173 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 3173 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 18:42:02.946  INFO 3173 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 18:42:04.626  INFO 3173 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 18:42:04.833  INFO 3173 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 182ms. Found 10 JPA repository interfaces.
+2020-10-29 18:42:05.337  WARN 3173 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 18:42:05.717  INFO 3173 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@48a0c8aa' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 18:42:05.722  INFO 3173 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 18:42:06.337  INFO 3173 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 18:42:06.347  INFO 3173 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 18:42:06.347  INFO 3173 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 18:42:06.451  INFO 3173 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 18:42:06.453  INFO 3173 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3376 ms
+2020-10-29 18:42:06.560  WARN 3173 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 18:42:06.739  INFO 3173 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 18:42:06.922  INFO 3173 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 18:42:06.975  INFO 3173 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 18:42:07.129  INFO 3173 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 18:42:07.437  INFO 3173 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 18:42:07.654  INFO 3173 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 18:42:08.322  INFO 3173 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 18:42:08.329  INFO 3173 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 18:42:09.533  INFO 3173 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 18:42:09.557  INFO 3173 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 18:42:09.557  INFO 3173 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 18:42:09.558  INFO 3173 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 18:42:09.559  INFO 3173 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 18:42:09.559  INFO 3173 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 18:42:09.559  INFO 3173 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 18:42:09.559  INFO 3173 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3c5044fa
+2020-10-29 18:42:09.738  INFO 3173 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cd6f08b, org.springframework.security.web.context.SecurityContextPersistenceFilter@78e7b83, org.springframework.security.web.header.HeaderWriterFilter@96c840a, org.springframework.security.web.authentication.logout.LogoutFilter@25dc2c0, org.cn.kaito.auth.Security.SecurityUserFilter@67689c81, org.springframework.security.web.session.ConcurrentSessionFilter@62871522, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c8a91e2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79b0956e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78b2d29e, org.springframework.security.web.session.SessionManagementFilter@3f838072, org.springframework.security.web.access.ExceptionTranslationFilter@6e22d6bf]
+2020-10-29 18:42:10.023  INFO 3173 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 18:42:10.459  INFO 3173 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 18:42:10.740  INFO 3173 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 18:42:10.741  INFO 3173 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 18:42:10.743  INFO 3173 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 18:42:10.776  INFO 3173 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 10.29 seconds (JVM running for 12.018)
+2020-10-29 18:42:31.276  INFO 3173 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-29 18:42:31.279  INFO 3173 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-29 18:42:31.293  INFO 3173 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-10-29 18:42:31.309  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:33.824  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:33.831  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:33.833  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:33.834  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:33.856  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:33.857  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:33.857  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:33.871  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:33.920  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:33.920  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:33.927  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:33.928  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:33.927  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:33.928  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:33.937  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:33.938  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:35.053  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:35.059  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:35.063  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:35.069  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:35.082  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:35.082  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:35.082  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:35.083  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:35.085  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:42:35.087  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:35.098  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:35.100  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:42:35.158  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:35.159  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:35.159  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:35.159  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:35.160  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:35.163  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:42:35.184  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:42:35.186  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:43:03.618  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:05.359  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:05.363  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:43:05.379  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:43:05.379  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:43:12.900  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:12.905  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:43:12.925  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:43:12.926  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:43:13.647  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:13.649  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:43:13.654  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:43:13.654  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:43:19.034  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:19.038  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:43:19.049  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:43:19.049  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:43:19.567  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:19.569  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:43:19.574  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:43:19.574  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:43:23.815  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:23.819  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:23.817  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:23.818  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:23.821  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:43:23.822  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:43:23.822  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:43:23.823  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:43:23.829  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:43:23.830  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:43:23.829  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:23.832  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:43:23.832  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:43:23.832  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:43:23.833  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:43:23.833  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:43:23.831  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:43:23.834  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:43:23.852  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:43:23.852  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:43:40.145  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:40.149  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:43:40.161  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:43:40.161  INFO 3173 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:43:41.918  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:41.921  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:43:41.932  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:43:41.932  INFO 3173 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:43:59.303  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:43:59.331  INFO 3173 --- [http-nio-8080-exec-3] o.c.k.a.C.handler.GlobalResponseHandler  : 发生异常
+
+org.cn.kaito.auth.Exception.CustomerException: null
+	at org.cn.kaito.auth.Service.ServiceImpl.UserServiceImpl.lambda$login$0(UserServiceImpl.java:33) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408) ~[na:na]
+	at org.cn.kaito.auth.Service.ServiceImpl.UserServiceImpl.login(UserServiceImpl.java:33) ~[classes/:na]
+	at org.cn.kaito.auth.Controller.UserController.login(UserController.java:37) ~[classes/:na]
+	at org.cn.kaito.auth.Controller.UserController$$FastClassBySpringCGLIB$$4a971e8c.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.cn.kaito.auth.Controller.UserController$$EnhancerBySpringCGLIB$$386cc41f.login(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:152) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.cn.kaito.auth.Security.SecurityUserFilter.doFilterInternal(SecurityUserFilter.java:64) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-10-29 18:44:05.662  INFO 3173 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:44:07.181  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:44:07.184  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:44:07.189  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:44:07.190  INFO 3173 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:44:08.671  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:44:08.674  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:44:08.681  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:44:08.682  INFO 3173 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:44:22.105  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:44:22.109  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:44:22.118  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:44:22.119  INFO 3173 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:44:28.962  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:44:28.965  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:44:28.974  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:44:28.975  INFO 3173 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:44:29.743  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:44:29.745  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:44:29.749  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:44:29.749  INFO 3173 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:45:15.520  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:45:15.522  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:45:15.526  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:45:15.526  INFO 3173 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:50:23.264  INFO 3173 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 18:50:23.338  INFO 3173 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 18:50:23.341  INFO 3173 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 18:50:23.342  INFO 3173 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 18:50:23.344  INFO 3173 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 18:50:23.345  INFO 3173 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 18:50:23.352  INFO 3173 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 18:50:23.358  INFO 3173 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 18:50:23.365  INFO 3173 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 18:50:23.388  INFO 3173 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 18:55:35.736  INFO 5798 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 5798 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 18:55:35.743  INFO 5798 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 18:55:36.582  INFO 5798 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 18:55:36.665  INFO 5798 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75ms. Found 10 JPA repository interfaces.
+2020-10-29 18:55:37.111  WARN 5798 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 18:55:37.469  INFO 5798 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@18578491' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 18:55:37.473  INFO 5798 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 18:55:37.876  INFO 5798 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 18:55:37.896  INFO 5798 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 18:55:37.897  INFO 5798 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 18:55:38.100  INFO 5798 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 18:55:38.101  INFO 5798 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2182 ms
+2020-10-29 18:55:38.229  WARN 5798 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 18:55:38.388  INFO 5798 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 18:55:38.695  INFO 5798 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 18:55:38.785  INFO 5798 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 18:55:38.822  INFO 5798 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 18:55:38.907  INFO 5798 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 18:55:39.016  INFO 5798 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 18:55:39.825  INFO 5798 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 18:55:39.830  INFO 5798 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 18:55:40.841  INFO 5798 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 18:55:40.897  INFO 5798 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 18:55:40.897  INFO 5798 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 18:55:40.898  INFO 5798 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 18:55:40.899  INFO 5798 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 18:55:40.899  INFO 5798 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 18:55:40.899  INFO 5798 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 18:55:40.899  INFO 5798 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3f62d56
+2020-10-29 18:55:41.073  INFO 5798 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43312512, org.springframework.security.web.context.SecurityContextPersistenceFilter@78b2d29e, org.springframework.security.web.header.HeaderWriterFilter@71135794, org.springframework.security.web.authentication.logout.LogoutFilter@57ed8f95, org.cn.kaito.auth.Security.SecurityUserFilter@44a485bc, org.springframework.security.web.session.ConcurrentSessionFilter@263e512e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3055f310, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b814e23, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13f7c165, org.springframework.security.web.session.SessionManagementFilter@4a7c72af, org.springframework.security.web.access.ExceptionTranslationFilter@34ff08c6]
+2020-10-29 18:55:41.214  INFO 5798 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 18:55:41.717  INFO 5798 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 18:55:41.810  INFO 5798 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 18:55:41.811  INFO 5798 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 18:55:41.811  INFO 5798 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 18:55:41.833  INFO 5798 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 6.933 seconds (JVM running for 8.027)
+2020-10-29 18:56:06.688  INFO 5798 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-29 18:56:06.689  INFO 5798 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-29 18:56:06.696  INFO 5798 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-10-29 18:56:06.706  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:06.726  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:56:06.742  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:56:06.743  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:11.103  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:11.112  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:56:11.130  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:56:11.130  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:41.811  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:47.047  INFO 5798 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:47.058  INFO 5798 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:56:47.065  INFO 5798 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:56:47.066  INFO 5798 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:47.843  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:47.848  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:56:47.862  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:56:47.864  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:48.366  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:48.370  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:56:48.389  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:56:48.393  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:50.147  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:50.153  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:56:50.165  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:56:50.165  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:51.000  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:51.003  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 1a8-445b-9
+2020-10-29 18:56:51.006  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[1a8-445b-9], setting security context
+2020-10-29 18:56:51.006  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:52.916  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:52.920  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:56:52.934  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:56:52.935  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:53.678  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:53.682  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:56:53.692  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:56:53.693  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:56:56.823  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:56:56.831  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:56:56.844  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:56:56.845  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:57:01.240  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:57:01.242  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:57:01.249  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:57:01.249  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:58:09.625  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:09.631  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 220103
+2020-10-29 18:58:09.645  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[220103], setting security context
+2020-10-29 18:58:09.646  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, user-read, user-changePwd, task-execute]
+2020-10-29 18:58:45.934  INFO 5798 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:47.137  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:47.139  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:47.141  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:47.145  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:47.146  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:47.152  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:47.158  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:47.158  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:47.167  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:47.167  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:47.170  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:47.170  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:47.181  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:47.183  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:47.187  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:47.188  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:49.345  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:49.350  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:49.350  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:49.355  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:49.362  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:49.366  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:49.371  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:49.373  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:49.374  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:49.377  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:58:49.380  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:49.381  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:49.384  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:49.388  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:49.396  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:49.397  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:49.399  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:49.399  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:58:49.400  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:49.400  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:58:56.522  INFO 5798 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:58:56.562  INFO 5798 --- [http-nio-8080-exec-4] o.c.k.a.C.handler.GlobalResponseHandler  : 发生异常
+
+org.cn.kaito.auth.Exception.CustomerException: null
+	at org.cn.kaito.auth.Controller.FileController.download(FileController.java:31) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:152) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.cn.kaito.auth.Security.SecurityUserFilter.doFilterInternal(SecurityUserFilter.java:64) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-10-29 18:58:56.653  INFO 5798 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:01.798  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:01.802  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:01.817  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:01.817  INFO 5798 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:59:01.818  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:01.823  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:01.824  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:01.827  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:01.835  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:01.835  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:01.846  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:01.846  INFO 5798 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:59:01.853  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:01.854  INFO 5798 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:59:01.858  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:01.859  INFO 5798 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:59:04.358  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:04.358  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:04.362  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:04.363  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:04.372  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:04.373  INFO 5798 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:59:04.373  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:04.374  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 18:59:04.374  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:04.374  INFO 5798 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:59:04.376  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:04.377  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 18:59:04.386  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:04.387  INFO 5798 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 18:59:04.386  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 18:59:04.394  INFO 5798 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:00:08.200  INFO 5798 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 19:00:08.256  INFO 5798 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 19:00:08.258  INFO 5798 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 19:00:08.258  INFO 5798 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 19:00:08.258  INFO 5798 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 19:00:08.258  INFO 5798 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 19:00:08.258  INFO 5798 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 19:00:08.260  INFO 5798 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 19:00:08.263  INFO 5798 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 19:00:08.273  INFO 5798 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-29 19:00:13.671  INFO 6687 --- [main] org.cn.kaito.auth.AuthApplication        : Starting AuthApplication on xiawenke-80ww with PID 6687 (/home/xiawenke/JLU/grade_3/软件工程/software-engineering/target/classes started by xiawenke in /home/xiawenke/JLU/grade_3/软件工程/software-engineering)
+2020-10-29 19:00:13.693  INFO 6687 --- [main] org.cn.kaito.auth.AuthApplication        : The following profiles are active: dev
+2020-10-29 19:00:14.565  INFO 6687 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-29 19:00:14.634  INFO 6687 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56ms. Found 10 JPA repository interfaces.
+2020-10-29 19:00:15.037  WARN 6687 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.cn.kaito.auth]' package. Please check your configuration.
+2020-10-29 19:00:15.219  INFO 6687 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@671c4166' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 19:00:15.224  INFO 6687 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-29 19:00:15.456  INFO 6687 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-29 19:00:15.463  INFO 6687 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-29 19:00:15.463  INFO 6687 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-29 19:00:15.526  INFO 6687 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-29 19:00:15.526  INFO 6687 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1743 ms
+2020-10-29 19:00:15.587  WARN 6687 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-29 19:00:15.735  INFO 6687 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-29 19:00:15.909  INFO 6687 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-29 19:00:15.962  INFO 6687 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-29 19:00:16.049  INFO 6687 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-29 19:00:16.328  INFO 6687 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-29 19:00:16.500  INFO 6687 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-29 19:00:16.973  INFO 6687 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-29 19:00:16.977  INFO 6687 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 19:00:17.714  INFO 6687 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-10-29 19:00:17.723  INFO 6687 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-10-29 19:00:17.723  INFO 6687 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-10-29 19:00:17.723  INFO 6687 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-10-29 19:00:17.724  INFO 6687 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-10-29 19:00:17.724  INFO 6687 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-10-29 19:00:17.724  INFO 6687 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-10-29 19:00:17.724  INFO 6687 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@340c7479
+2020-10-29 19:00:17.886  INFO 6687 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66ab088c, org.springframework.security.web.context.SecurityContextPersistenceFilter@4419cd6e, org.springframework.security.web.header.HeaderWriterFilter@79b0956e, org.springframework.security.web.authentication.logout.LogoutFilter@2fc40856, org.cn.kaito.auth.Security.SecurityUserFilter@35cf91df, org.springframework.security.web.session.ConcurrentSessionFilter@62c42a3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b7c0f39, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@149238fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d01a2eb, org.springframework.security.web.session.SessionManagementFilter@3e24bab6, org.springframework.security.web.access.ExceptionTranslationFilter@e2344da]
+2020-10-29 19:00:18.003  INFO 6687 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-29 19:00:18.276  INFO 6687 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-10-29 19:00:18.349  INFO 6687 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-29 19:00:18.351  INFO 6687 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-10-29 19:00:18.351  INFO 6687 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-10-29 19:00:18.371  INFO 6687 --- [main] org.cn.kaito.auth.AuthApplication        : Started AuthApplication in 5.131 seconds (JVM running for 5.907)
+2020-10-29 19:01:12.315  INFO 6687 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-29 19:01:12.316  INFO 6687 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-29 19:01:12.332  INFO 6687 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-10-29 19:01:12.356  INFO 6687 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:12.356  INFO 6687 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:12.356  INFO 6687 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:12.356  INFO 6687 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:12.356  INFO 6687 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:12.415  INFO 6687 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:12.415  INFO 6687 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:12.417  INFO 6687 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:12.415  INFO 6687 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:12.415  INFO 6687 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:12.470  INFO 6687 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:12.470  INFO 6687 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:12.472  INFO 6687 --- [http-nio-8080-exec-5] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:12.470  INFO 6687 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:12.474  INFO 6687 --- [http-nio-8080-exec-2] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:12.473  INFO 6687 --- [http-nio-8080-exec-3] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:12.473  INFO 6687 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:12.477  INFO 6687 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:12.485  INFO 6687 --- [http-nio-8080-exec-4] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:12.486  INFO 6687 --- [http-nio-8080-exec-1] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:15.691  INFO 6687 --- [http-nio-8080-exec-6] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:19.464  INFO 6687 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:19.469  INFO 6687 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:19.464  INFO 6687 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:19.474  INFO 6687 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:19.478  INFO 6687 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:19.480  INFO 6687 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:19.493  INFO 6687 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : 正在执行权限检查
+2020-10-29 19:01:19.497  INFO 6687 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : the userName is 551808
+2020-10-29 19:01:19.498  INFO 6687 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:19.498  INFO 6687 --- [http-nio-8080-exec-9] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:19.515  INFO 6687 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:19.528  INFO 6687 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:19.529  INFO 6687 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : authenticated user Optional[551808], setting security context
+2020-10-29 19:01:19.529  INFO 6687 --- [http-nio-8080-exec-10] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:19.529  INFO 6687 --- [http-nio-8080-exec-7] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:01:19.526  INFO 6687 --- [http-nio-8080-exec-8] o.c.k.auth.Security.SecurityUserFilter   : [project-read, project-start, project-end, project-restart, project-create, user-read, user-changePwd, project-edit, project-delete]
+2020-10-29 19:03:19.008  INFO 6687 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 19:03:19.078  INFO 6687 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-10-29 19:03:19.083  INFO 6687 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-29 19:03:19.084  INFO 6687 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2020-10-29 19:03:19.085  INFO 6687 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-10-29 19:03:19.086  INFO 6687 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-10-29 19:03:19.087  INFO 6687 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-10-29 19:03:19.094  INFO 6687 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-29 19:03:19.101  INFO 6687 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-29 19:03:19.122  INFO 6687 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

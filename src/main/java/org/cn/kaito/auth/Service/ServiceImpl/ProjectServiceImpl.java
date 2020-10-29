@@ -353,6 +353,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public boolean validate(String uid, String fileName) throws CustomerException {
+        UserDTO userDTO = userService.getUserByID(uid);
+        if (userDTO.getTypeID()==4){return true;}
         ProjectEntity projectEntity = projectRepository.findProjectEntityByProjectName(fileName)
                                 .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
         Optional<SubTaskEntity> task= taskRepository.findAllByExecutorAndAndProjectID(uid,projectEntity.getProjectID());
