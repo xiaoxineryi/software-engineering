@@ -13,21 +13,21 @@ import java.util.Optional;
 @Repository
 public interface ProjectRepository extends JpaRepository<ProjectEntity,String> {
     @Query(value = "select new org.cn.kaito.auth.DTO.SimpleProjectDTO(p.projectID,p.projectName" +
-            ",p.status,p.createDate)" +
+            ",p.creator,p.status,p.createDate)" +
             "from ProjectEntity p order by p.createDate desc ")
     List<SimpleProjectDTO> getAll(Pageable pageable);
 
     Optional<ProjectEntity> findProjectEntityByProjectName(String projectName);
 
     @Query(value = "select distinct new org.cn.kaito.auth.DTO.SimpleProjectDTO(p.projectID,p.projectName" +
-            ",p.status,p.createDate)" +
+            ",p.creator,p.status,p.createDate)" +
             "from ProjectEntity p join SubTaskEntity st on p.projectID = st.projectID " +
             "where st.executor = ?1 " +
             "order by p.createDate desc" )
     List<SimpleProjectDTO> getDirectByUserID(String uid,Pageable pageable);
 
     @Query(value = "select distinct new org.cn.kaito.auth.DTO.SimpleProjectDTO(p.projectID,p.projectName" +
-            ",p.status,p.createDate)" +
+            ",p.creator,p.status,p.createDate)" +
             "from ProjectEntity p join SubTaskEntity st on p.projectID = st.projectID " +
             "join EntrustEntity en on en.subTask = st.taskID " +
             "where en.entrustWorker = ?1 " +

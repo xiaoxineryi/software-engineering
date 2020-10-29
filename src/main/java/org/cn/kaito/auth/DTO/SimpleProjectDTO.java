@@ -14,8 +14,9 @@ public class SimpleProjectDTO {
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     Date startTime;
     String creator;
-    public SimpleProjectDTO(String id, String name, String status,Date startTime) {
+    public SimpleProjectDTO(String id, String name, String creator,String status,Date startTime) {
         this.id = id;
+        this.creator = creator;
         this.name = name;
         this.status = status;
         this.startTime = startTime;

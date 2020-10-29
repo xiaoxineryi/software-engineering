@@ -302,6 +302,7 @@ public class ProjectServiceImpl implements ProjectService {
                                 .orElseThrow(()->new CustomerException(StatusEnum.DONT_HAVE_PROJECT));
         ProjectDetailDTO projectDetailDTO = new ProjectDetailDTO();
         projectDetailDTO.setId(pid);
+        projectDetailDTO.setCreator(projectEntity.getCreator());
         projectDetailDTO.setPath(FileUtil.getFileSrc(projectEntity.getProjectName()));
         projectDetailDTO.setStatus(projectEntity.getStatus());
         projectDetailDTO.setName(projectEntity.getProjectName());
